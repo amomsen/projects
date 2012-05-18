@@ -1,0 +1,30 @@
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\MainWindow.baml
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\SudokuGrid.baml
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\MainWindow.g.cs
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\SudokuGrid.g.cs
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\App.g.cs
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\sudoku_MarkupCompile.cache
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\sudoku.g.resources
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\bin\Debug\sudoku.exe.config
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\bin\Debug\sudoku.exe
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\bin\Debug\sudoku.pdb
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\sudoku.exe
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\sudoku.pdb
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\atalia.beukes\Documents\Visual Studio 2010\Projects\sudoku\obj\x86\Debug\sudoku_MarkupCompile.lref
+C:\workspace\CodeChallenge\Apr2012\sudoku\bin\Debug\sudoku.exe.config
+C:\workspace\CodeChallenge\Apr2012\sudoku\bin\Debug\sudoku.exe
+C:\workspace\CodeChallenge\Apr2012\sudoku\bin\Debug\sudoku.pdb
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\SudokuGrid.baml
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\MainWindow.g.cs
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\SudokuGrid.g.cs
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\App.g.cs
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku_MarkupCompile.cache
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku_MarkupCompile.lref
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\MainWindow.baml
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.g.resources
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.exe
+C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.pdb

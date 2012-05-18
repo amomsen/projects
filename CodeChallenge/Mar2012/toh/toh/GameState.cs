@@ -1,0 +1,90 @@
+﻿using System.Collections.Generic;
+using System.Drawing;
+
+namespace toh
+{
+    public static class GameState
+    {
+        public static List<Pole> Poles = new List<Pole>();
+        public static List<Bitmap> ImageList = new List<Bitmap>();
+        public static int MoveCount { get; set; }
+        public static int NumberOfDisks { get; set; }
+        
+        // Start the game
+        static GameState()
+        {
+            LoadImagesFromFile();
+            RestartGame(3);
+        }
+
+        public static int Move(Move move)
+        {
+            if (move.affectCount())
+            {
+                MoveCount++;
+            }
+            
+            if (move.isValid())
+            {
+                Disk disk = move.FromPole.getTopDisk();
+                Poles[move.FromPole.Number].RemoveDisk();
+                Poles[move.ToPole.Number].AddDisk(disk);
+                return MoveCount;
+            }
+
+            else //Invalid move
+            {
+                return -1;
+            }
+        }
+
+        public static bool IsSolved()
+        {
+            return (Poles[Properties.Settings.Default.EndPole].Disks.Count == NumberOfDisks);
+        }
+
+        public static Pole findDisk(Disk diskToFind)
+        {
+            foreach (Pole pole in Poles)
+            {
+                if (pole.Disks.ContainsValue(diskToFind))
+                {
+                    return pole;
+                }
+            }
+            return null;
+        }
+
+        public static void RestartGame(int numberOfDisks)
+        {
+            NumberOfDisks = numberOfDisks;
+            RestartGame();
+        }
+
+        public static void RestartGame()
+        {
+            MoveCount = 0;
+            Poles = new List<Pole>();
+            Poles.Add(new Pole(0));
+            Poles.Add(new Pole(1));
+            Poles.Add(new Pole(2));
+
+            for (int i = NumberOfDisks - 1; i >= 0; i--)
+            {
+                Disk disk = new Disk(i);
+                Poles[0].AddDisk(disk);
+            }
+        }
+
+        private static void LoadImagesFromFile()
+        {
+            ImageList.Add(toh.Properties.Resources.disk1);
+            ImageList.Add(toh.Properties.Resources.disk2);
+            ImageList.Add(toh.Properties.Resources.disk3);
+            ImageList.Add(toh.Properties.Resources.disk4);
+            ImageList.Add(toh.Properties.Resources.disk5);
+            ImageList.Add(toh.Properties.Resources.disk6);
+        }
+    }
+}
+

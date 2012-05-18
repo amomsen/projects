@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="13a6fbe6-938a-477d-bcb3-0a11d75461a6" name="atalia.beukes@DTAHQCZC9351JC1 2012-04-10 10:00:34" runUser="BWMAFR\atalia.beukes" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="fb905960-8d90-4288-b6a8-1598539214c2">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="atalia.beukes_DTAHQCZC9351JC1 2012-04-10 10_00_34">
+      <DeploymentItem filename="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Microsoft.CSharp.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.DataSetExtensions.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Deployment.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.Linq.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" />
+      <DeploymentItem filename="C:\workspace\CodeChallenge\Mar2012\toh\toh\bin\Debug\toh.exe" />
+      <DeploymentItem filename="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-04-10T10:00:34.7604618+02:00" queuing="2012-04-10T10:00:47.8774618+02:00" start="2012-04-10T10:00:48.4084618+02:00" finish="2012-04-10T10:05:03.4568694+02:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="6" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="5" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="DTAHQCZC9351JC1" outcome="Error" timestamp="2012-04-10T10:05:03.4558694+02:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="getMovesTest" storage="c:\workspace\codechallenge\mar2012\toh\testproject1\bin\debug\testproject1.dll" id="9cd0caa3-7b89-e5d4-6714-cba236976e2d">
+      <Execution id="9715fc2a-a732-4857-b740-a950ffd42408" />
+      <TestMethod codeBase="C:/workspace/CodeChallenge/Mar2012/toh/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.MoveCalculatorTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getMovesTest" />
+    </UnitTest>
+    <UnitTest name="IsSolvedTest" storage="c:\workspace\codechallenge\mar2012\toh\testproject1\bin\debug\testproject1.dll" id="e1d37d35-df28-d38f-0c9f-cb776dfc003c">
+      <Execution id="f6f15746-8b38-4df5-9011-20306fe68dc4" />
+      <TestMethod codeBase="C:/workspace/CodeChallenge/Mar2012/toh/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.GameStateTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="IsSolvedTest" />
+    </UnitTest>
+    <UnitTest name="RestartGameTest" storage="c:\workspace\codechallenge\mar2012\toh\testproject1\bin\debug\testproject1.dll" id="75e81428-2d3c-2c70-5a75-13c8b9f91036">
+      <Execution id="818b3f57-cd69-4ab8-9f1e-dcc28062b440" />
+      <TestMethod codeBase="C:/workspace/CodeChallenge/Mar2012/toh/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.GameStateTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RestartGameTest" />
+    </UnitTest>
+    <UnitTest name="getMoveCountTest" storage="c:\workspace\codechallenge\mar2012\toh\testproject1\bin\debug\testproject1.dll" id="6a5361c1-ebe9-ff86-bdf3-8a65935f37d7">
+      <Execution id="e2e38d37-995e-4f8a-8d38-c0c5dda45fd9" />
+      <TestMethod codeBase="C:/workspace/CodeChallenge/Mar2012/toh/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.MoveCalculatorTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getMoveCountTest" />
+    </UnitTest>
+    <UnitTest name="RestartGameTest1" storage="c:\workspace\codechallenge\mar2012\toh\testproject1\bin\debug\testproject1.dll" id="604d6278-4236-4a13-795e-219c3c2f18b8">
+      <Execution id="f4288c78-793e-49f7-87ae-316235592fc6" />
+      <TestMethod codeBase="C:/workspace/CodeChallenge/Mar2012/toh/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.GameStateTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RestartGameTest1" />
+    </UnitTest>
+    <UnitTest name="moveTest" storage="c:\workspace\codechallenge\mar2012\toh\testproject1\bin\debug\testproject1.dll" id="765ca031-6822-e592-a425-0a17fde4bfcd">
+      <Execution id="9bb2d9ab-a978-4521-9165-b7c51361167f" />
+      <TestMethod codeBase="C:/workspace/CodeChallenge/Mar2012/toh/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.GameStateTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="moveTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="9cd0caa3-7b89-e5d4-6714-cba236976e2d" executionId="9715fc2a-a732-4857-b740-a950ffd42408" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6a5361c1-ebe9-ff86-bdf3-8a65935f37d7" executionId="e2e38d37-995e-4f8a-8d38-c0c5dda45fd9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="75e81428-2d3c-2c70-5a75-13c8b9f91036" executionId="818b3f57-cd69-4ab8-9f1e-dcc28062b440" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e1d37d35-df28-d38f-0c9f-cb776dfc003c" executionId="f6f15746-8b38-4df5-9011-20306fe68dc4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="765ca031-6822-e592-a425-0a17fde4bfcd" executionId="9bb2d9ab-a978-4521-9165-b7c51361167f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="604d6278-4236-4a13-795e-219c3c2f18b8" executionId="f4288c78-793e-49f7-87ae-316235592fc6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="9715fc2a-a732-4857-b740-a950ffd42408" testId="9cd0caa3-7b89-e5d4-6714-cba236976e2d" testName="getMovesTest" computerName="DTAHQCZC9351JC1" duration="00:04:14.8384076" startTime="2012-04-10T10:00:48.6174618+02:00" endTime="2012-04-10T10:05:03.4558694+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9715fc2a-a732-4857-b740-a950ffd42408">
+    </UnitTestResult>
+    <UnitTestResult executionId="e2e38d37-995e-4f8a-8d38-c0c5dda45fd9" testId="6a5361c1-ebe9-ff86-bdf3-8a65935f37d7" testName="getMoveCountTest" computerName="DTAHQCZC9351JC1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e2e38d37-995e-4f8a-8d38-c0c5dda45fd9">
+    </UnitTestResult>
+    <UnitTestResult executionId="818b3f57-cd69-4ab8-9f1e-dcc28062b440" testId="75e81428-2d3c-2c70-5a75-13c8b9f91036" testName="RestartGameTest" computerName="DTAHQCZC9351JC1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="818b3f57-cd69-4ab8-9f1e-dcc28062b440">
+    </UnitTestResult>
+    <UnitTestResult executionId="f6f15746-8b38-4df5-9011-20306fe68dc4" testId="e1d37d35-df28-d38f-0c9f-cb776dfc003c" testName="IsSolvedTest" computerName="DTAHQCZC9351JC1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f6f15746-8b38-4df5-9011-20306fe68dc4">
+    </UnitTestResult>
+    <UnitTestResult executionId="9bb2d9ab-a978-4521-9165-b7c51361167f" testId="765ca031-6822-e592-a425-0a17fde4bfcd" testName="moveTest" computerName="DTAHQCZC9351JC1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9bb2d9ab-a978-4521-9165-b7c51361167f">
+    </UnitTestResult>
+    <UnitTestResult executionId="f4288c78-793e-49f7-87ae-316235592fc6" testId="604d6278-4236-4a13-795e-219c3c2f18b8" testName="RestartGameTest1" computerName="DTAHQCZC9351JC1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f4288c78-793e-49f7-87ae-316235592fc6">
+    </UnitTestResult>
+  </Results>
+</TestRun>

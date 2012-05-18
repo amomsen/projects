@@ -1,0 +1,4 @@
+<Modules>
+  <Module PersistentId="F3507E0D-6A32-4E40-BB43-6FC224EA507A" ModuleId="sudoku" />
+  <Module PersistentId="3045B23B-28FE-4FB5-ACA1-7B84F9AB2533" ModuleId="sudoku.Test" />
+</Modules>

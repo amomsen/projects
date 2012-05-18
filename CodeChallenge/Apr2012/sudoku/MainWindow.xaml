@@ -1,0 +1,8 @@
+﻿<Window x:Class="sudoku.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="431" Width="483" ResizeMode="NoResize" xmlns:my="clr-namespace:sudoku">
+    <Grid>
+        <my:SudokuGrid HorizontalAlignment="Left" Margin="26,12,0,0" x:Name="sudokuGrid1" VerticalAlignment="Top" />
+    </Grid>
+</Window>
