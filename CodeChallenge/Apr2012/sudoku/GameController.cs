@@ -25,14 +25,9 @@ namespace sudoku
             return problem;
         }
 
-        private static bool possibleSudoku(List<int> problem, int index)
-        {
-            int value = 1;
-            isRealSudoku(problem, index, value);
-            return false;
-        }
+        
 
-        private static bool isRealSudoku(List<int> problem, int index, int value)
+        private static bool isValidMove(List<int> problem, int index, int value)
         {
             SolverContext context = SolverContext.GetContext();
             context.ClearModel();

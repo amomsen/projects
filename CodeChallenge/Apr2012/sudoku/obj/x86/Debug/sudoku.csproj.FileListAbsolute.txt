@@ -28,3 +28,17 @@ C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\MainWindow.baml
 C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.g.resources
 C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.exe
 C:\workspace\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.pdb
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\bin\Debug\sudoku.exe.config
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.exe
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.pdb
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\bin\Debug\sudoku.exe
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\bin\Debug\sudoku.pdb
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\SudokuGrid.baml
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\MainWindow.g.cs
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\SudokuGrid.g.cs
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\App.g.cs
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku_MarkupCompile.cache
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku_MarkupCompile.lref
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\MainWindow.baml
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.g.resources

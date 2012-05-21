@@ -57,12 +57,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Board.cs" />
     <Compile Include="DecisionFactory.cs" />
     <Compile Include="GameController.cs" />
     <Compile Include="GridHelper.cs" />
     <Compile Include="SudokuGrid.xaml.cs">
       <DependentUpon>SudokuGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SudokuSquare.cs" />
     <Compile Include="Utils.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

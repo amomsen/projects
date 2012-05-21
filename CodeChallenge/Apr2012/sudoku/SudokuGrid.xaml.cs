@@ -26,80 +26,87 @@ namespace sudoku
         public SudokuGrid()
         {
             InitializeComponent();
+            
             numbers = GameController.GetSudokuProblem(36).ToArray();
+            numbers = Board.Values; 
             DrawBoard();
         }
 
         private void DrawBoard()
         {
-            for (int vert = 1; vert < 4; vert++)
+            for (int verticalCount = 1; verticalCount <= Board.NumberOfRowsAndColumns; verticalCount++)
             {
-                for (int hori = 1; hori < 4; hori++)
+                for (int horizontalCount = 1; horizontalCount < Board.NumberOfRowsAndColumns; horizontalCount++)
                 {
-                    DrawSquare((hori * 120) - 120 + (6 * hori), (vert * 111) - 111 + (6 * vert));
+                    DrawBox((horizontalCount * 120) - 120 + (6 * horizontalCount), (verticalCount * 111) - 111 + (6 * verticalCount));
                 }
             }
         }
 
-        private void DrawSquare(int startx, int starty)
+        private void DrawBox(int xOffset, int yOffSet)
         {
-            for (int vert = 1; vert < 4; vert++)
+            for (int verticalCount = 1; verticalCount <= Board.SquareGrouping; verticalCount++)
             {
-                for (int hori = 1; hori < 4; hori++)
+                for (int horizontalCount = 1; horizontalCount <= Board.SquareGrouping; horizontalCount++)
                 {
-                    int x = (hori * 40) - 40 + startx;
-                    int y = (vert * 37) - 37 + starty;
-                    if (numbers[BlockNumber] == 0)
+                    int x = (horizontalCount * 40) - 40 + xOffset;
+                    int y = (verticalCount * 37) - 37 + yOffSet;
+                    if (numbers[BlockNumber] == Board.EmptyFlagValue)
                     {
-                        DrawBlock(x, y, true, numbers[BlockNumber], BlockNumber++);
+                        DrawRectangle(x, y, true, numbers[BlockNumber], BlockNumber++);
                     }
                     else
                     {
 
-                        DrawBlock(x, y, false, numbers[BlockNumber], BlockNumber++);
+                        DrawRectangle(x, y, false, numbers[BlockNumber], BlockNumber++);
                     }
                     PositionList.Add(new Point(x, y));
                 }
             }
         }
 
-        private void DrawBlock(int x, int y, bool highlight, int DisplayNumber, int blocknumber)
+        private void DrawRectangle(int x, int y, bool highlight, int DisplayNumber, int blocknumber)
         {
-            Rectangle emptyBlock = new Rectangle();
-            emptyBlock.Width = 40;
-            emptyBlock.Height = 37;
-            emptyBlock.SetValue(Canvas.TopProperty, Convert.ToDouble(y));
-            emptyBlock.SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
-            GradientStopCollection gradients = new GradientStopCollection();
+            SudokuSquare emptyBlock = new SudokuSquare(BLockNameIterator++, x, y);
+            
+            //emptyBlock.SetValue(Canvas.TopProperty, Convert.ToDouble(y));
+            //emptyBlock.SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
+            
+            //GradientStopCollection gradients = new GradientStopCollection();
 
-            Label blockLabel = new Label();
-            blockLabel.Height = 37;
-            blockLabel.Width = 40;
-            blockLabel.FontSize = 25;
+            //Label blockLabel = new Label();
+            //blockLabel.Height = 37;
+            //blockLabel.Width = 40;
+            //blockLabel.FontSize = 25;
 
-            blockLabel.SetValue(Canvas.TopProperty, Convert.ToDouble(y - 5));
-            blockLabel.SetValue(Canvas.LeftProperty, Convert.ToDouble(x + 7));
-            blockLabel.Name = "B" + (BLockNameIterator++).ToString();
-            BoardCanvas.Children.Insert(1, blockLabel);
+            //blockLabel.SetValue(Canvas.TopProperty, Convert.ToDouble(y - 5));
+            //blockLabel.SetValue(Canvas.LeftProperty, Convert.ToDouble(x + 7));
+            //blockLabel.Name = "B" + (BLockNameIterator++).ToString();
+            
+            
+            /*BoardCanvas.Children.Insert(1, blockLabel);
             labels[blocknumber] = blockLabel;
 
             if (highlight == false)
             {
-                gradients.Add(new GradientStop(Colors.Gray, 1));
+                gradients.Add(new GradientStop(Colors.LightGray, 1));
                 gradients.Add(new GradientStop(Color.FromArgb(38, 255, 255, 255), 0.448));
                 gradients.Add(new GradientStop(Color.FromArgb(90, 73, 73, 73), 0.076));
+                emptyBlock.Stroke = Brushes.LightGray;
             }
             else
             {
                 gradients.Add(new GradientStop(Colors.LightBlue, 1));
                 gradients.Add(new GradientStop(Color.FromArgb(38, 255, 255, 255), 0.448));
-                gradients.Add(new GradientStop(Color.FromArgb(90, 73, 73, 73), 0.076));
+                gradients.Add(new GradientStop(Colors.LightBlue, 0.006));
+                emptyBlock.Stroke = Brushes.Silver;
+                //gradients.Add(new GradientStop(Color.FromArgb(90, 73, 73, 73), 0.076));
             }
 
             LinearGradientBrush myBrush = new LinearGradientBrush(gradients);
             myBrush.StartPoint = new Point(0.5, 0);
             myBrush.EndPoint = new Point(0.5, 1);
-            emptyBlock.Stroke = Brushes.Gray;
+            //emptyBlock.Stroke = Brushes.Gray;
             emptyBlock.StrokeThickness = 1;
             emptyBlock.Fill = myBrush;
             emptyBlock.RadiusX = 8;
@@ -115,6 +122,8 @@ namespace sudoku
                 emptyBlock.MouseLeftButtonDown += new MouseButtonEventHandler(emptyBlock_MouseLeftButtonDown);
                 blockLabel.MouseLeftButtonDown += new MouseButtonEventHandler(emptyBlock_MouseLeftButtonDown);
             }
+             */ 
+             
             BoardCanvas.Children.Insert(1, emptyBlock);
 
         }
