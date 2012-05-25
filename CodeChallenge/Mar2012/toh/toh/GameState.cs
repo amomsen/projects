@@ -55,12 +55,6 @@ namespace toh
             return null;
         }
 
-        public static void RestartGame(int numberOfDisks)
-        {
-            NumberOfDisks = numberOfDisks;
-            RestartGame();
-        }
-
         public static void RestartGame()
         {
             MoveCount = 0;
@@ -76,6 +70,12 @@ namespace toh
             }
         }
 
+        public static void RestartGame(int numberOfDisks)
+        {
+            NumberOfDisks = numberOfDisks;
+            RestartGame();
+        }
+        
         private static void LoadImagesFromFile()
         {
             ImageList.Add(toh.Properties.Resources.disk1);

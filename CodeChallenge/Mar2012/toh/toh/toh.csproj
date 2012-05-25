@@ -67,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameConstants.cs" />
-    <Compile Include="Score.cs" />
     <Compile Include="Pole.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -112,14 +111,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="images\base.png" />
-    <Content Include="images\disk1.png" />
-    <Content Include="images\disk2.png" />
-    <Content Include="images\disk3.png" />
-    <Content Include="images\disk4.png" />
-    <Content Include="images\disk5.png" />
-    <Content Include="images\disk6.png" />
-    <Content Include="images\pole.png" />
     <None Include="Resources\disk6.png" />
     <None Include="Resources\disk5.png" />
     <None Include="Resources\pole.png" />

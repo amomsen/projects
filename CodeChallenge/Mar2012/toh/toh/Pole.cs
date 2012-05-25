@@ -13,17 +13,13 @@ namespace toh
 
         public Pole(int number)
         {
-            this.Number = number;
-            
             Disks = new SortedList<int, Disk>();
-            this.BackColor = SystemColors.ControlDarkDark;
+            this.Number = number;
             this.Image = toh.Properties.Resources.pole;
             this.Size = toh.Properties.Resources.pole.Size;
-
-            int XPosition = GameConstants.BaseStartPositionX + ((number+1) * GameConstants.SpaceBetweenPoles);
+            int XPosition = GameConstants.BaseStartPositionX + ((number + 1) * GameConstants.SpaceBetweenPoles);
             int YPosition = GameConstants.BaseStartPositionY + toh.Properties.Resources._base.Size.Height - this.Size.Height;
             this.Location = new Point(XPosition, YPosition);
-            this.SendToBack();
         }
 
         public bool IsEmpty()
@@ -80,7 +76,6 @@ namespace toh
                     return false;
                 }
 
-                // If parameter cannot be cast to Pole return false.
                 Pole pole = obj as Pole;
                 if ((System.Object)pole == null)
                 {

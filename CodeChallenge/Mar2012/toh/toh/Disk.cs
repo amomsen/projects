@@ -12,8 +12,6 @@ namespace toh
             this.Number = Number;
             this.Image = GameState.ImageList[Number];
             this.Size = this.Image.Size;
-            this.BackColor = SystemColors.ControlDark;
-            this.BringToFront();
         }
 
         public void MoveToPole(Pole DestinationPole)

@@ -26,9 +26,9 @@ namespace toh
 
         void thisBox_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
         {
-
-            ((PictureBox)sender).Location = new Point(Cursor.Position.X - this.Location.X,
-                                                      Cursor.Position.Y - this.Location.Y);
+            Disk currentDisk = (Disk)sender;
+            currentDisk.Location = new Point(Cursor.Position.X - this.Location.X - (currentDisk.Size.Height / 2),
+                                             Cursor.Position.Y - this.Location.Y - (currentDisk.Size.Width / 2));
 
             if (e.Action == DragAction.Drop)
             {
@@ -56,11 +56,8 @@ namespace toh
             int moveCount = GameState.Move(move);
             moveCounter.Text = moveCount.ToString();
             if (GameState.IsSolved())
-            {
-                Score score = new Score(usernameTextbox.Text, GameState.MoveCount.ToString());
-                Form dlg1 = new Form();
-                dlg1.ShowDialog();
-                //.Text += "Solved :) ";
+            {   
+                possibleToSolve.Text = "Solved :) ";
             }
         }
 
@@ -78,7 +75,7 @@ namespace toh
         }
 
         private Point GetMousePosition()  {
-            return new Point(Cursor.Position.X - this.Location.X - 10, Cursor.Position.Y - this.Location.Y - 30);
+            return new Point(Cursor.Position.X - this.Location.X, Cursor.Position.Y - this.Location.Y);
         }
 
         //Determine at which pole the cursor is
@@ -89,7 +86,7 @@ namespace toh
                 return 0;
             if (MousePosition.X > GameState.Poles[1].Location.X - 60 && MousePosition.X < GameState.Poles[2].Location.X - 60)
                 return 1;
-            if (MousePosition.X > GameState.Poles[2].Location.X - 60 && MousePosition.X < GameState.Poles[2].Location.X + 350)
+            if (MousePosition.X > GameState.Poles[2].Location.X - 60 && MousePosition.X < GameState.Poles[2].Location.X + GameConstants.SpaceBetweenPoles)
                 return 2;
             //Use pole 0 as default
             return 0;
@@ -119,16 +116,19 @@ namespace toh
 
         private void SolveGame()
         {
+            this.Enabled = false;
             List<Move> moves = MoveCalculator.GetMoves(GameState.NumberOfDisks);
-            //hints.Text = "";
-            //hints.Text = "Hints: ";
+            hints.Visible = true;
+            hints.Text = "";
+            hints.Text = "Hints: ";
             foreach (Move move in moves)
             {
-                //hints.Text += move.ToString();
+                hints.Text += move.ToString();
                 MakeMove(move);
                 Application.DoEvents();
                 System.Threading.Thread.Sleep(1000);
             }
+            this.Enabled = true;
         }
 
         private void RestartGame(int numberOfDisks)
@@ -142,7 +142,8 @@ namespace toh
             RemoveAllDisks();
             GameState.RestartGame();
             AddComponents();
-            //hints.Text = "";
+            hints.Text = "";
+            hints.Visible = false;
             moveCounter.Text = GameState.MoveCount.ToString();
             possibleToSolve.Text = "It is possible to solve this puzzel in " + MoveCalculator.GetMoveCount(GameState.NumberOfDisks).ToString() + " moves.";
         }

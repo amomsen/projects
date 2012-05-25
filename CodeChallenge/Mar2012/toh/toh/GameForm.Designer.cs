@@ -42,6 +42,7 @@
             this.moveCounterLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.moveCounter = new System.Windows.Forms.ToolStripStatusLabel();
             this.possibleToSolve = new System.Windows.Forms.ToolStripStatusLabel();
+            this.hints = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1084, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(992, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -134,9 +135,9 @@
             this.moveCounterLabel,
             this.moveCounter,
             this.possibleToSolve});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 434);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 357);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1084, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(992, 22);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -156,12 +157,23 @@
             this.possibleToSolve.Name = "possibleToSolve";
             this.possibleToSolve.Size = new System.Drawing.Size(0, 17);
             // 
+            // hints
+            // 
+            this.hints.Dock = System.Windows.Forms.DockStyle.Right;
+            this.hints.Location = new System.Drawing.Point(838, 24);
+            this.hints.Name = "hints";
+            this.hints.Size = new System.Drawing.Size(154, 333);
+            this.hints.TabIndex = 9;
+            this.hints.Text = global::toh.Properties.Resources.base_image;
+            this.hints.Visible = false;
+            // 
             // GameForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 456);
+            this.ClientSize = new System.Drawing.Size(992, 379);
+            this.Controls.Add(this.hints);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.usernameTextbox);
             this.Controls.Add(this.menuStrip1);
@@ -197,6 +209,7 @@
         private System.Windows.Forms.ToolStripStatusLabel moveCounterLabel;
         private System.Windows.Forms.ToolStripStatusLabel moveCounter;
         private System.Windows.Forms.ToolStripStatusLabel possibleToSolve;
+        private System.Windows.Forms.RichTextBox hints;
 
 	}
 }

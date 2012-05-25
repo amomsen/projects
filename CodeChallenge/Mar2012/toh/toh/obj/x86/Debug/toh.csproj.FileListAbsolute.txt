@@ -20,8 +20,6 @@ C:\workspace\CodeChallenge\Mar2012\toh\toh\obj\x86\Debug\toh.GameForm.resources
 C:\workspace\CodeChallenge\Mar2012\toh\toh\bin\Debug\toh.exe.CodeAnalysisLog.xml
 C:\workspace\CodeChallenge\Mar2012\toh\toh\bin\Debug\toh.exe.lastcodeanalysissucceeded
 C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\bin\Debug\toh.exe.config
-C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\obj\x86\Debug\toh.exe
-C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\obj\x86\Debug\toh.pdb
 C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\bin\Debug\toh.exe
 C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\bin\Debug\toh.pdb
 C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\bin\Debug\Microsoft.CSharp.dll
@@ -38,3 +36,5 @@ C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\obj\x86\Debug\toh.G
 C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\obj\x86\Debug\toh.Properties.Resources.resources
 C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\obj\x86\Debug\toh.exe
+C:\workspace\projects\projects\CodeChallenge\Mar2012\toh\toh\obj\x86\Debug\toh.pdb

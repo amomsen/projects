@@ -1,11 +1,9 @@
-﻿using toh;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+using toh;
 
 namespace TestProject1
 {
-
-
     /// <summary>
     ///This is a test class for MoveCalculatorTest and is intended
     ///to contain all MoveCalculatorTest Unit Tests
