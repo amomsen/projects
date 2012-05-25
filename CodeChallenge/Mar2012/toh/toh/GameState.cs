@@ -19,12 +19,12 @@ namespace toh
 
         public static int Move(Move move)
         {
-            if (move.affectCount())
+            if (move.AffectCount())
             {
                 MoveCount++;
             }
             
-            if (move.isValid())
+            if (move.IsValid())
             {
                 Disk disk = move.FromPole.getTopDisk();
                 Poles[move.FromPole.Number].RemoveDisk();
@@ -43,7 +43,7 @@ namespace toh
             return (Poles[Properties.Settings.Default.EndPole].Disks.Count == NumberOfDisks);
         }
 
-        public static Pole findDisk(Disk diskToFind)
+        public static Pole FindDisk(Disk diskToFind)
         {
             foreach (Pole pole in Poles)
             {

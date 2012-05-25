@@ -17,8 +17,5 @@
     <Setting Name="EndPole" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">2</Value>
     </Setting>
-    <Setting Name="ScoreFile" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">scores.txt</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

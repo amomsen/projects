@@ -1,5 +1,4 @@
-﻿
-namespace toh
+﻿namespace toh
 {
     public class Score
     {

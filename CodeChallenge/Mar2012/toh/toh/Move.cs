@@ -1,5 +1,4 @@
-﻿
-namespace toh
+﻿namespace toh
 {
     public class Move
     {
@@ -12,24 +11,24 @@ namespace toh
             this.ToPole = toPole;
         }
 
-        public bool affectCount()
+        public bool AffectCount()
         {
             //If the poles dont change the move should not be counted
             if (ToPole.Equals(FromPole))
             {
                 return false;
             }
-            return isValid();
+            return IsValid();
         }            
 
-        public bool isValid()
+        public bool IsValid()
         {
             //Allow a move where the pole dont change
             if (ToPole.Equals(FromPole))
             {
                 return true;
             }
-            return ToPole.allowDisk(FromPole.getTopDisk());
+            return ToPole.AllowDisk(FromPole.getTopDisk());
         }
 
         public Move(int fromPoleNumber, int toPoleNumber)

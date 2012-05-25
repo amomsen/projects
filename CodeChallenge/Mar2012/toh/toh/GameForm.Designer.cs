@@ -30,7 +30,6 @@
 		{
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.highScorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeAmountOfDisksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,8 +37,6 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.showMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hints = new System.Windows.Forms.RichTextBox();
-            this.hintsLable = new System.Windows.Forms.Label();
             this.usernameTextbox = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.moveCounterLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -55,27 +52,19 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1250, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1084, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.highScorerToolStripMenuItem,
             this.changeAmountOfDisksToolStripMenuItem,
             this.showMeToolStripMenuItem,
             this.restartToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(95, 20);
             this.toolStripMenuItem1.Text = "Game Options";
-            // 
-            // highScorerToolStripMenuItem
-            // 
-            this.highScorerToolStripMenuItem.Name = "highScorerToolStripMenuItem";
-            this.highScorerToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.highScorerToolStripMenuItem.Text = "View high scores";
-            this.highScorerToolStripMenuItem.Click += new System.EventHandler(this.highScorerToolStripMenuItem_Click);
             // 
             // changeAmountOfDisksToolStripMenuItem
             // 
@@ -130,23 +119,6 @@
             this.restartToolStripMenuItem.Text = "Restart";
             this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
             // 
-            // hints
-            // 
-            this.hints.Location = new System.Drawing.Point(1070, 52);
-            this.hints.Name = "hints";
-            this.hints.Size = new System.Drawing.Size(168, 405);
-            this.hints.TabIndex = 1;
-            this.hints.Text = global::toh.Properties.Resources.base_image;
-            // 
-            // hintsLable
-            // 
-            this.hintsLable.AutoSize = true;
-            this.hintsLable.Location = new System.Drawing.Point(1067, 36);
-            this.hintsLable.Name = "hintsLable";
-            this.hintsLable.Size = new System.Drawing.Size(58, 13);
-            this.hintsLable.TabIndex = 4;
-            this.hintsLable.Text = "Instructions:";
-            // 
             // usernameTextbox
             // 
             this.usernameTextbox.Location = new System.Drawing.Point(12, 437);
@@ -162,9 +134,9 @@
             this.moveCounterLabel,
             this.moveCounter,
             this.possibleToSolve});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 464);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 434);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1250, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1084, 22);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -189,15 +161,15 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 486);
+            this.ClientSize = new System.Drawing.Size(1084, 456);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.usernameTextbox);
-            this.Controls.Add(this.hintsLable);
-            this.Controls.Add(this.hints);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GameForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Tower of Hanoi";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Form2_Load);
             this.DragOver += new System.Windows.Forms.DragEventHandler(this.Form2_DragOver);
             this.menuStrip1.ResumeLayout(false);
@@ -213,16 +185,13 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem highScorerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeAmountOfDisksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem showMeToolStripMenuItem;
-        private System.Windows.Forms.RichTextBox hints;
         private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
-        private System.Windows.Forms.Label hintsLable;
         private System.Windows.Forms.TextBox usernameTextbox;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel moveCounterLabel;

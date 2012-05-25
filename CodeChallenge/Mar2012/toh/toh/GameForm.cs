@@ -16,7 +16,7 @@ namespace toh
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-            restartGame();
+            RestartGame();
         }
 
         void thisBox_DragOver(object sender, DragEventArgs e)
@@ -26,7 +26,9 @@ namespace toh
 
         void thisBox_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
         {
-            ((PictureBox)sender).Location = new Point(Cursor.Position.X - this.Location.X - 10, Cursor.Position.Y - this.Location.Y - 30);
+
+            ((PictureBox)sender).Location = new Point(Cursor.Position.X - this.Location.X,
+                                                      Cursor.Position.Y - this.Location.Y);
 
             if (e.Action == DragAction.Drop)
             {
@@ -34,12 +36,12 @@ namespace toh
 
                 //The disk we are moving
                 Disk disk = (Disk)sender;
-                Pole currentPole = GameState.findDisk(disk);
+                Pole currentPole = GameState.FindDisk(disk);
                 Move move = new Move(currentPole, GameState.Poles[destinationPoleNumber]);
 
-                if (move.isValid())
+                if (move.IsValid())
                 {
-                    makeMove(move);
+                    MakeMove(move);
                 }
                 else
                 {
@@ -49,22 +51,23 @@ namespace toh
             }
         }
 
-        private void makeMove(Move move)
+        private void MakeMove(Move move)
         {
             int moveCount = GameState.Move(move);
             moveCounter.Text = moveCount.ToString();
             if (GameState.IsSolved())
             {
                 Score score = new Score(usernameTextbox.Text, GameState.MoveCount.ToString());
-                ScoreWriter.writeScore(score);
-                hints.Text += "Solved :) ";
+                Form dlg1 = new Form();
+                dlg1.ShowDialog();
+                //.Text += "Solved :) ";
             }
         }
 
-        void disk_MouseDown(object sender, MouseEventArgs e)
+        private void disk_MouseDown(object sender, MouseEventArgs e)
         {
             Disk disk = (Disk)sender;
-            Pole pole = GameState.findDisk(disk);
+            Pole pole = GameState.FindDisk(disk);
 
             //Check if the disk is the top one
             if (!pole.getTopDisk().Equals(disk))
@@ -74,14 +77,14 @@ namespace toh
             ((PictureBox)sender).DoDragDrop(((PictureBox)sender), DragDropEffects.All);
         }
 
-        private Point getMousePosition()  {
+        private Point GetMousePosition()  {
             return new Point(Cursor.Position.X - this.Location.X - 10, Cursor.Position.Y - this.Location.Y - 30);
         }
 
         //Determine at which pole the cursor is
         private int DeterminePoleFromCursorPosition()
         {
-            Point MousePosition = getMousePosition();
+            Point MousePosition = GetMousePosition();
             if (MousePosition.X < GameState.Poles[0].Location.X)
                 return 0;
             if (MousePosition.X > GameState.Poles[1].Location.X - 60 && MousePosition.X < GameState.Poles[2].Location.X - 60)
@@ -95,7 +98,7 @@ namespace toh
         private void toolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripDropDownItem Item = sender as ToolStripDropDownItem;
-            restartGame(Convert.ToInt16(Item.Text));
+            RestartGame(Convert.ToInt16(Item.Text));
         }
 
         private void Form2_DragOver(object sender, DragEventArgs e)
@@ -105,45 +108,46 @@ namespace toh
 
         private void showMeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            restartGame();
-            solveGame();
+            RestartGame();
+            SolveGame();
         }
 
         private void restartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            restartGame();
+            RestartGame();
         }
 
-        private void solveGame()
+        private void SolveGame()
         {
             List<Move> moves = MoveCalculator.GetMoves(GameState.NumberOfDisks);
-            hints.Text = "";
+            //hints.Text = "";
+            //hints.Text = "Hints: ";
             foreach (Move move in moves)
             {
-                hints.Text += move.ToString();
-                makeMove(move);
+                //hints.Text += move.ToString();
+                MakeMove(move);
                 Application.DoEvents();
                 System.Threading.Thread.Sleep(1000);
             }
         }
 
-        private void restartGame(int numberOfDisks)
+        private void RestartGame(int numberOfDisks)
         {
             GameState.NumberOfDisks = numberOfDisks;
-            restartGame();
+            RestartGame();
         }
 
-        private void restartGame()
+        private void RestartGame()
         {
-            removeAllDisks();
+            RemoveAllDisks();
             GameState.RestartGame();
-            addComponents();
-            hints.Text = "";
+            AddComponents();
+            //hints.Text = "";
             moveCounter.Text = GameState.MoveCount.ToString();
             possibleToSolve.Text = "It is possible to solve this puzzel in " + MoveCalculator.GetMoveCount(GameState.NumberOfDisks).ToString() + " moves.";
         }
 
-        private void removeAllDisks()
+        private void RemoveAllDisks()
         {
             foreach (Pole pole in GameState.Poles)
             {
@@ -154,22 +158,30 @@ namespace toh
             }
         }
 
-
-
-        private void addComponents()
+        private void AddComponents()
         {
+            PictureBox _base = new PictureBox();
+            _base.Image = toh.Properties.Resources._base;
+            _base.Size = toh.Properties.Resources._base.Size;
+            _base.BackColor = SystemColors.ControlDarkDark;
+            _base.Location = new Point(GameConstants.BaseStartPositionX, GameConstants.BaseStartPositionY);
+
+
+            this.Controls.Add(_base);
+            
             moveCounter.Text = GameState.MoveCount.ToString();
+            
             foreach (Pole pole in GameState.Poles)
             {
-                initPole(pole);
+                InitPole(pole);
                 foreach (Disk disk in pole.Disks.Values)
                 {
-                    initDisk(disk);
+                    InitDisk(disk);
                 }
             }
         }
 
-        private void initPole(Pole pole)
+        private void InitPole(Pole pole)
         {
             if (!this.Controls.Contains(pole))
             {
@@ -177,7 +189,7 @@ namespace toh
             }
         }
 
-        private void initDisk(Disk disk)
+        private void InitDisk(Disk disk)
         {
             if (!this.Controls.Contains(disk))
             {
@@ -191,12 +203,6 @@ namespace toh
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
         {
             usernameTextbox.Text = "";
-        }
-
-        private void highScorerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            hints.Text = ScoreReader.GetScores();
-
         }
 
     }

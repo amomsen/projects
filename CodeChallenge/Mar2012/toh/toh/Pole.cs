@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace toh
 {
@@ -10,31 +11,27 @@ namespace toh
         public SortedList<int, Disk> Disks { get; set; }
         public int Number { get; set; }
 
-        private const int spaceBetweenPoles = 300;
-        private const int startXPosition = 90;
-        private const int startYPosition = 320;
-        private const int width = 200;
-        private const int heigth = 20;
-
         public Pole(int number)
         {
             this.Number = number;
-            int XPosition = startXPosition + (number * spaceBetweenPoles);
-            int YPosition = startYPosition;
-
+            
             Disks = new SortedList<int, Disk>();
             this.BackColor = SystemColors.ControlDarkDark;
-            this.Size = new Size(width, heigth);
-            this.Image = toh.Properties.Resources._base;
+            this.Image = toh.Properties.Resources.pole;
+            this.Size = toh.Properties.Resources.pole.Size;
+
+            int XPosition = GameConstants.BaseStartPositionX + ((number+1) * GameConstants.SpaceBetweenPoles);
+            int YPosition = GameConstants.BaseStartPositionY + toh.Properties.Resources._base.Size.Height - this.Size.Height;
             this.Location = new Point(XPosition, YPosition);
+            this.SendToBack();
         }
 
-        public bool isEmpty()
+        public bool IsEmpty()
         {
             return Disks.Count == 0;
         }
 
-        public bool allowDisk(Disk disk)
+        public bool AllowDisk(Disk disk)
         {
             if (disk == null)
             {
@@ -63,22 +60,21 @@ namespace toh
 
         public void AddDisk(Disk disk)
         {
-            if (allowDisk(disk))
+            if (AllowDisk(disk))
             {
-                disk.moveToPole(this);
+                disk.MoveToPole(this);
                 Disks.Add(disk.Number, disk);
             }
         }
 
         override public string ToString()
         {
-            return string.Format("{0}", Number);
+            return Convert.ToString(Number);
         }
 
         public override bool Equals(object obj)
         {
             {
-                // If parameter is null return false.
                 if (obj == null)
                 {
                     return false;

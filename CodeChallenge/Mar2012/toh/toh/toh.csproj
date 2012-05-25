@@ -66,8 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ScoreWriter.cs" />
-    <Compile Include="ScoreReader.cs" />
+    <Compile Include="GameConstants.cs" />
     <Compile Include="Score.cs" />
     <Compile Include="Pole.cs">
       <SubType>Component</SubType>
