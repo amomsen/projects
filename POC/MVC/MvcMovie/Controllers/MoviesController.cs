@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
-{ 
+{
     public class MoviesController : Controller
     {
         private MovieDBContext db = new MovieDBContext();
@@ -27,6 +27,10 @@ namespace MvcMovie.Controllers
         public ViewResult Details(int id)
         {
             Movie movie = db.Movies.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
             return View(movie);
         }
 
@@ -36,7 +40,7 @@ namespace MvcMovie.Controllers
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /Movie/Create
@@ -48,15 +52,15 @@ namespace MvcMovie.Controllers
             {
                 db.Movies.Add(movie);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
             return View(movie);
         }
-        
+
         //
         // GET: /Movie/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             Movie movie = db.Movies.Find(id);
@@ -80,10 +84,14 @@ namespace MvcMovie.Controllers
 
         //
         // GET: /Movie/Delete/5
- 
-        public ActionResult Delete(int id)
+
+        public ActionResult Delete(int id = 0)
         {
             Movie movie = db.Movies.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
             return View(movie);
         }
 
@@ -91,9 +99,13 @@ namespace MvcMovie.Controllers
         // POST: /Movie/Delete/5
 
         [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {            
+        public ActionResult DeleteConfirmed(int id = 0)
+        {
             Movie movie = db.Movies.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
             db.Movies.Remove(movie);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -103,6 +115,26 @@ namespace MvcMovie.Controllers
         {
             db.Dispose();
             base.Dispose(disposing);
+        }
+
+
+        public ActionResult SearchIndex(string searchString)
+        {
+            var movies = from m in db.Movies
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
+
+            return View(movies);
+        }
+
+        [HttpPost]
+        public string SearchIndex(FormCollection fc, string searchString)
+        {
+            return "<h3> From [HttpPost]SearchIndex: " + searchString + "</h3>";
         }
     }
 }

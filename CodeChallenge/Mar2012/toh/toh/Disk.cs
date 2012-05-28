@@ -17,7 +17,7 @@ namespace toh
         public void MoveToPole(Pole DestinationPole)
         {
             int numberOfRungsOnSelectedPole = DestinationPole.Disks.Count;
-            int growthFactor = this.Number * Properties.Settings.Default.DiskWidthGrowthFactor;            
+            int growthFactor = this.Number * this.Image.Size.Height;            
             int x = (DestinationPole.Location.X + DestinationPole.Width) - (DestinationPole.Width / 2)  - (this.Size.Width / 2);
             int y = DestinationPole.Location.Y + DestinationPole.Size.Height - ((numberOfRungsOnSelectedPole + 1) * this.Size.Height) - toh.Properties.Resources._base.Size.Height;
             this.Location = new Point(x, y);

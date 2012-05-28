@@ -10,7 +10,7 @@ namespace toh
         public static List<Move> GetMoves(int numberOfDisks)
         {
             moves = new List<Move>();
-            Move(numberOfDisks - 1, 0, 2);
+            Calculate(numberOfDisks - 1, 0, 2);
             return moves;
         }
 
@@ -20,7 +20,7 @@ namespace toh
             return (int) Math.Pow(2.0, numberOfDisks_Double) - 1;
         }
 
-        private static void Move(int n, int fromPole, int toPole)
+        private static void Calculate(int n, int fromPole, int toPole)
         {
             if (n == -1)
             {
@@ -28,9 +28,9 @@ namespace toh
             }
             int intermediatePole = GetIntermediatePole(fromPole, toPole);
             
-            Move(n - 1, fromPole, intermediatePole);
+            Calculate(n - 1, fromPole, intermediatePole);
             moves.Add(new Move(fromPole, toPole));
-            Move(n - 1, intermediatePole, toPole);
+            Calculate(n - 1, intermediatePole, toPole);
         }
 
         private static int GetIntermediatePole(int startPole, int endPole)
