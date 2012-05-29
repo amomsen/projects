@@ -42,3 +42,6 @@ C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku_MarkupCo
 C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku_MarkupCompile.lref
 C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\MainWindow.baml
 C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.g.resources
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\bin\Debug\sudoku.exe.config
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.exe
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.pdb

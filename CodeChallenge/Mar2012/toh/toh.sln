@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "toh", "toh\toh.csproj", "{B98E1313-8BE8-498E-A3E0-E7B4195F30F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "toh_tests", "TestProject1\toh_tests.csproj", "{8EF1F2C8-0979-4DFB-A8B9-AC8A0AEF538D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "toh_tests", "toh_test\toh_tests.csproj", "{8EF1F2C8-0979-4DFB-A8B9-AC8A0AEF538D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E515853E-DFE9-4DA3-8286-46F6AF28A8F2}"
 	ProjectSection(SolutionItems) = preProject

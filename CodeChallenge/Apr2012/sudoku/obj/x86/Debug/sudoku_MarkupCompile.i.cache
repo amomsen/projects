@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\
 sudoku
 none
 false
 DEBUG;TRACE
-C:\workspace\projects\CodeChallenge\Apr2012\sudoku\App.xaml
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\App.xaml
 2-800788106
 
-11-2139008206
+12-1783625084
 13-248107197
 MainWindow.xaml;SudokuGrid.xaml;
 

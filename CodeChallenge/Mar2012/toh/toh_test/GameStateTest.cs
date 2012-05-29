@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using toh;
 
-namespace TestProject1
+namespace toh_test
 {
     /// <summary>
     ///This is a test class for GameStateTest and is intended
