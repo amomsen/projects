@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using sudoku_new;
 
 namespace sudoku
 {
@@ -67,67 +68,41 @@ namespace sudoku
 
         private void DrawBlock(int x, int y, bool highlight, int DisplayNumber, int blocknumber)
         {
-            Rectangle emptyBlock = new Rectangle();
-            emptyBlock.Width = 40;
-            emptyBlock.Height = 37;
-            emptyBlock.SetValue(Canvas.TopProperty, Convert.ToDouble(y));
-            emptyBlock.SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
-            GradientStopCollection gradients = new GradientStopCollection();
+            TestControl block = new TestControl() {Id = blocknumber, DisplayValue = DisplayNumber.ToString(), IsHighligthed = highlight};
+            
+            block.SetValue(Canvas.TopProperty, Convert.ToDouble(y));
+            block.SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
+            
+            block.Name = "B" + (BLockNameIterator++).ToString();
+            
+            //BoardCanvas.Children.Insert(1, block);
+            
+            labels[blocknumber] = block.SudokuLabel;
 
-            Label blockLabel = new Label();
-            blockLabel.Height = 37;
-            blockLabel.Width = 40;
-            blockLabel.FontSize = 25;
-
-            blockLabel.SetValue(Canvas.TopProperty, Convert.ToDouble(y - 5));
-            blockLabel.SetValue(Canvas.LeftProperty, Convert.ToDouble(x + 7));
-            blockLabel.Name = "B" + (BLockNameIterator++).ToString();
-            BoardCanvas.Children.Insert(1, blockLabel);
-            labels[blocknumber] = blockLabel;
-
-            if (highlight == false)
-            {
-                gradients.Add(new GradientStop(Colors.Gray, 1));
-                gradients.Add(new GradientStop(Color.FromArgb(38, 255, 255, 255), 0.448));
-                gradients.Add(new GradientStop(Color.FromArgb(90, 73, 73, 73), 0.076));
-            }
-            else
-            {
-                gradients.Add(new GradientStop(Colors.LightBlue, 1));
-                gradients.Add(new GradientStop(Color.FromArgb(38, 255, 255, 255), 0.448));
-                gradients.Add(new GradientStop(Color.FromArgb(90, 73, 73, 73), 0.076));
-            }
-
-            LinearGradientBrush myBrush = new LinearGradientBrush(gradients);
-            myBrush.StartPoint = new Point(0.5, 0);
-            myBrush.EndPoint = new Point(0.5, 1);
-            emptyBlock.Stroke = Brushes.Gray;
-            emptyBlock.StrokeThickness = 1;
-            emptyBlock.Fill = myBrush;
-            emptyBlock.RadiusX = 8;
-            emptyBlock.RadiusY = 8;
-            emptyBlock.Name = "B" + (BLockNameIterator).ToString();
+            //emptyBlock.Name = "B" + (BLockNameIterator).ToString();
 
             if (DisplayNumber != 0)
             {
-                blockLabel.Content = DisplayNumber.ToString();
+                block.SudokuLabel.Content = DisplayNumber.ToString();
             }
             else
             {
-                emptyBlock.MouseLeftButtonDown += new MouseButtonEventHandler(emptyBlock_MouseLeftButtonDown);
-                blockLabel.MouseLeftButtonDown += new MouseButtonEventHandler(emptyBlock_MouseLeftButtonDown);
+                block.MouseLeftButtonDown += new MouseButtonEventHandler(emptyBlock_MouseLeftButtonDown);
             }
-            BoardCanvas.Children.Insert(1, emptyBlock);
+            BoardCanvas.Children.Insert(1, block);
         }
 
         private void emptyBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             string blockName = "";
             int blockNumber;
-            if (e.Source is Rectangle)
-                blockName = ((Rectangle)e.Source).Name.TrimStart('B');
-            else if (e.Source is Label)
-                blockName = ((Label)e.Source).Name.TrimStart('B');
+            //if (e.Source is Rectangle)
+            //    blockName = ((Rectangle)e.Source).Name.TrimStart('B');
+            //else if (e.Source is Label)
+            //    blockName = ((Label)e.Source).Name.TrimStart('B');
+            TestControl testControl = (TestControl)e.Source;
+
+            blockName = testControl.Name.TrimStart('B');
 
             if (int.TryParse(blockName, out blockNumber))
             {
@@ -136,17 +111,21 @@ namespace sudoku
                     BoardCanvas.Children.Remove(inputBox);
                     inputBox = null;
                 }
-                inputBox = new TextBox();
-                inputBox.SetValue(Canvas.LeftProperty, Convert.ToDouble(PositionList[blockNumber].X));
-                inputBox.SetValue(Canvas.TopProperty, Convert.ToDouble(PositionList[blockNumber].Y));
+                testControl.SudokuLabel.Focus();
+
+                //inputBox = new TextBox();
+                //inputBox.SetValue(Canvas.LeftProperty, Convert.ToDouble(PositionList[blockNumber].X));
+                //inputBox.SetValue(Canvas.TopProperty, Convert.ToDouble(PositionList[blockNumber].Y));
                 SelectedBlock = blockNumber;
-                inputBox.Height = 37;
-                inputBox.Width = 40;
-                inputBox.KeyDown += new KeyEventHandler(inputBox_KeyDown);
-                inputBox.FontSize = 25;
-                inputBox.TextAlignment = TextAlignment.Center;
-                BoardCanvas.Children.Insert(1, inputBox);
-                inputBox.Focus();
+                //inputBox.Height = 37;
+                //inputBox.Width = 40;
+                testControl.SudokuLabel.KeyDown += new KeyEventHandler(inputBox_KeyDown);
+                testControl.SudokuLabel.Focus();
+                //inputBox.KeyDown += new KeyEventHandler(inputBox_KeyDown);
+                //inputBox.FontSize = 25;
+                //inputBox.TextAlignment = TextAlignment.Center;
+                //BoardCanvas.Children.Insert(1, inputBox);
+                //inputBox.Focus();
             }
         }
 

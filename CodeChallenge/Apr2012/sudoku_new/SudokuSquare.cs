@@ -9,20 +9,20 @@ using System.Windows;
 
 namespace sudoku
 {
-    public class SudokuSquare : UIElement
+    public class SudokuSquare : UserControl
     {
 
-        Rectangle rectangle = new Rectangle();
+        //Rectangle rectangle = new Rectangle();
         
 
-       /* public SudokuSquare(int id, int x, int y)
+       public SudokuSquare(int id, int x, int y)
         {
-            Rectangle rectangle = new Rectangle();
-            rectangle.Width = 40;
-            rectangle.Height = 37;
+            //Rectangle rectangle = new Rectangle();
+            this.Width = 40;
+            this.Height = 37;
 
-            rectangle.SetValue(Canvas.TopProperty, Convert.ToDouble(y));
-            rectangle.SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
+            this.SetValue(Canvas.TopProperty, Convert.ToDouble(y));
+            this.SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
 
             GradientStopCollection gradients = new GradientStopCollection();
 
@@ -37,7 +37,7 @@ namespace sudoku
 
 
             
-        }*/
+        }
 
     }
 }

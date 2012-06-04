@@ -6,6 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="358" d:DesignWidth="387">
     <Canvas Height="361" Name="BoardCanvas" Width="386">
-        <Rectangle Canvas.Left="0" Canvas.Top="0" Height="359" Name="rectangle1" Stroke="Black" Width="385" RadiusX="10" RadiusY="10" StrokeThickness="3" Fill="#15000000"></Rectangle>
+        <Rectangle Canvas.Left="0" Canvas.Top="0" Height="359" Name="rectangle1" Stroke="Black" Width="385" 
+                   RadiusX="10" RadiusY="10" StrokeThickness="3" Fill="#15000000"></Rectangle>
     </Canvas>
 </UserControl>
