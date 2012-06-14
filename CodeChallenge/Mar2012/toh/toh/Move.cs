@@ -28,7 +28,7 @@
             {
                 return true;
             }
-            return ToPole.AllowDisk(FromPole.getTopDisk());
+            return ToPole.AllowDisk(FromPole.GetTopDisk());
         }
 
         public Move(int fromPoleNumber, int toPoleNumber)
@@ -59,8 +59,8 @@
             {
                 return false;
             }
-            return ((Move)obj).FromPole.Number == move.FromPole.Number &&
-                ((Move)obj).ToPole.Number == move.ToPole.Number;
+            return move.FromPole.Number == move.FromPole.Number &&
+                move.ToPole.Number == move.ToPole.Number;
         }
     }
 }

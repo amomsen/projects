@@ -7,18 +7,22 @@ namespace toh
     {
         public int Number { get; set; }
 
-        public Disk(int Number) : base()
+        public Disk(int number) : base()
         {
-            this.Number = Number;
-            this.Image = GameState.ImageList[Number];
-            this.Size = this.Image.Size;
+            Number = number;
+            Image = GameState.ImageList[Number];
+            Size = Image.Size;
         }
 
-        public void MoveToPole(Pole DestinationPole)
+        public void MoveToPole(Pole destinationPole)
         {
-            int numberOfRungsOnSelectedPole = DestinationPole.Disks.Count;         
-            int x = (DestinationPole.Location.X + DestinationPole.Width) - (DestinationPole.Width / 2)  - (this.Size.Width / 2);
-            int y = DestinationPole.Location.Y + DestinationPole.Size.Height - ((numberOfRungsOnSelectedPole + 1) * this.Size.Height) - toh.Properties.Resources._base.Size.Height;
+            if (destinationPole == null || destinationPole.Disks == null)
+            {
+                return;
+            }
+            int numberOfRungsOnSelectedPole = destinationPole.Disks.Count;         
+            int x = (destinationPole.Location.X + destinationPole.Width) - (destinationPole.Width / 2)  - (this.Size.Width / 2);
+            int y = destinationPole.Location.Y + destinationPole.Size.Height - ((numberOfRungsOnSelectedPole + 1) * this.Size.Height) - toh.Properties.Resources._base.Size.Height;
             this.Location = new Point(x, y);
             this.BringToFront();
         }
@@ -40,7 +44,7 @@ namespace toh
             {
                 return false;
             }
-            return ((Disk)obj).Number == Number;
+            return disk.Number == Number;
 
         }
     }

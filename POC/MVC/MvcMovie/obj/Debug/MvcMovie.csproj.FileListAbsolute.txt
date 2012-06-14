@@ -1,0 +1,7 @@
+C:\workspace\projects\projects\POC\MVC\MvcMovie\bin\MvcMovie.dll
+C:\workspace\projects\projects\POC\MVC\MvcMovie\bin\MvcMovie.pdb
+C:\workspace\projects\projects\POC\MVC\MvcMovie\bin\EntityFramework.dll
+C:\workspace\projects\projects\POC\MVC\MvcMovie\bin\EntityFramework.xml
+C:\workspace\projects\projects\POC\MVC\MvcMovie\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\projects\projects\POC\MVC\MvcMovie\obj\Debug\MvcMovie.dll
+C:\workspace\projects\projects\POC\MVC\MvcMovie\obj\Debug\MvcMovie.pdb

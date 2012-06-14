@@ -4,6 +4,8 @@ using Microsoft.SolverFoundation.Services;
 
 namespace sudoku
 {
+
+    //Notes: Currently no Game/move evaluation 
     class GameController
     {
         private static void HideNumbers(List<int> list, int amount)
@@ -26,7 +28,7 @@ namespace sudoku
         }
 
         
-
+        
         private static bool isValidMove(List<int> problem, int index, int value)
         {
             SolverContext context = SolverContext.GetContext();

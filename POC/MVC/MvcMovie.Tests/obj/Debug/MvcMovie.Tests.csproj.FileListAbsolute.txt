@@ -1,0 +1,10 @@
+C:\workspace\projects\projects\POC\MVC\MvcMovie.Tests\bin\Debug\MvcMovie.Tests.dll.config
+C:\workspace\projects\projects\POC\MVC\MvcMovie.Tests\bin\Debug\MvcMovie.Tests.dll
+C:\workspace\projects\projects\POC\MVC\MvcMovie.Tests\bin\Debug\MvcMovie.Tests.pdb
+C:\workspace\projects\projects\POC\MVC\MvcMovie.Tests\bin\Debug\MvcMovie.dll
+C:\workspace\projects\projects\POC\MVC\MvcMovie.Tests\bin\Debug\EntityFramework.dll
+C:\workspace\projects\projects\POC\MVC\MvcMovie.Tests\bin\Debug\MvcMovie.pdb
+C:\workspace\projects\projects\POC\MVC\MvcMovie.Tests\bin\Debug\EntityFramework.xml
+C:\workspace\projects\projects\POC\MVC\MvcMovie.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\projects\projects\POC\MVC\MvcMovie.Tests\obj\Debug\MvcMovie.Tests.dll
+C:\workspace\projects\projects\POC\MVC\MvcMovie.Tests\obj\Debug\MvcMovie.Tests.pdb

@@ -37,10 +37,10 @@ namespace toh
             {
                 return true;
             }
-            return getTopDisk().Number > disk.Number;
+            return GetTopDisk().Number > disk.Number;
         }
 
-        public Disk getTopDisk()
+        public Disk GetTopDisk()
         {
             if (Disks.Count > 0)
             {
@@ -56,6 +56,10 @@ namespace toh
 
         public void AddDisk(Disk disk)
         {
+            if (disk == null)
+            {
+                return;
+            }
             if (AllowDisk(disk))
             {
                 disk.MoveToPole(this);
@@ -81,7 +85,7 @@ namespace toh
                 {
                     return false;
                 }
-                return ((Pole)obj).Number == Number;
+                return pole.Number == Number;
             }
         }
 

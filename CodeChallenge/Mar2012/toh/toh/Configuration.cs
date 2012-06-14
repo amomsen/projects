@@ -2,15 +2,15 @@
 {
     public class Configuration
     {
-        public int startPole {get; set;}
-        public int endPole { get; set; }
-        public int amountOfDisks { get; set; }
+        public int StartPole {get; set;}
+        public int EndPole { get; set; }
+        public int AmountOfDisks { get; set; }
 
         public Configuration(int startPole, int endPole, int amountOfDisks)
         {
-            this.startPole = startPole;
-            this.endPole = endPole;
-            this.amountOfDisks = amountOfDisks;
+            StartPole = startPole;
+            EndPole = endPole;
+            AmountOfDisks = amountOfDisks;
 
         }
 

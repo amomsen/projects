@@ -7,7 +7,7 @@ namespace toh
 {
     public partial class GameForm : Form
     {
-        private List<Bitmap> imageList = new List<Bitmap>();
+        //private List<Bitmap> imageList = new List<Bitmap>();
 
         public GameForm()
         {
@@ -26,16 +26,13 @@ namespace toh
 
         void thisBox_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
         {
-            Disk currentDisk = (Disk)sender;
-            currentDisk.Location = new Point(Cursor.Position.X - this.Location.X - (currentDisk.Size.Height / 2),
-                                             Cursor.Position.Y - this.Location.Y - (currentDisk.Size.Width / 2));
+            Disk disk = (Disk)sender;
+            disk.Location = new Point(Cursor.Position.X - this.Location.X - (disk.Size.Height / 2),
+                                             Cursor.Position.Y - this.Location.Y - (disk.Size.Width / 2));
 
             if (e.Action == DragAction.Drop)
             {
                 int destinationPoleNumber = DeterminePoleFromCursorPosition();
-
-                //The disk we are moving
-                Disk disk = (Disk)sender;
                 Pole currentPole = GameState.FindDisk(disk);
                 Move move = new Move(currentPole, GameState.Poles[destinationPoleNumber]);
 
@@ -46,14 +43,14 @@ namespace toh
                 else
                 {
                     Move moveBack = new Move(currentPole, currentPole);
-                    GameState.Move(moveBack);
+                    GameState.MakeMove(moveBack);
                 }
             }
         }
 
         private void MakeMove(Move move)
         {
-            int moveCount = GameState.Move(move);
+            int moveCount = GameState.MakeMove(move);
             moveCounter.Text = moveCount.ToString();
             if (GameState.IsSolved())
             {   
@@ -67,11 +64,11 @@ namespace toh
             Pole pole = GameState.FindDisk(disk);
 
             //Check if the disk is the top one
-            if (!pole.getTopDisk().Equals(disk))
+            if (!pole.GetTopDisk().Equals(disk))
             {
                 return;
             }
-            ((PictureBox)sender).DoDragDrop(((PictureBox)sender), DragDropEffects.All);
+            disk.DoDragDrop(disk, DragDropEffects.All);
         }
 
         private Point GetMousePosition()  {
@@ -119,8 +116,8 @@ namespace toh
             this.Enabled = false;
             List<Move> moves = MoveCalculator.GetMoves(GameState.NumberOfDisks);
             hints.Visible = true;
-            hints.Text = "";
-            hints.Text = "Hints: ";
+            hints.Text = string.Empty;
+            hints.Text = Properties.Resources.HintCaption;
             foreach (Move move in moves)
             {
                 hints.Text += move.ToString();

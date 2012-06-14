@@ -7,8 +7,8 @@ namespace toh
     {
         public static List<Pole> Poles = new List<Pole>();
         public static List<Bitmap> ImageList = new List<Bitmap>();
-        public static int MoveCount { get; set; }
-        public static int NumberOfDisks { get; set; }
+        public static int MoveCount = 0;
+        public static int NumberOfDisks = 0;
         
         // Start the game
         static GameState()
@@ -17,8 +17,12 @@ namespace toh
             RestartGame(3);
         }
 
-        public static int Move(Move move)
+        public static int MakeMove(Move move)
         {
+            if (move == null || move.FromPole == null || move.ToPole == null)
+            {
+                return -1;
+            }
             if (move.AffectCount())
             {
                 MoveCount++;
@@ -26,7 +30,7 @@ namespace toh
             
             if (move.IsValid())
             {
-                Disk disk = move.FromPole.getTopDisk();
+                Disk disk = move.FromPole.GetTopDisk();
                 Poles[move.FromPole.Number].RemoveDisk();
                 Poles[move.ToPole.Number].AddDisk(disk);
                 return MoveCount;

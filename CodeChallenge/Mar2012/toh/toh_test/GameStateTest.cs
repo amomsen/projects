@@ -124,7 +124,7 @@ namespace toh_test
             int expectedDiskCountForPole2 = 1;
             
             //Get actual values
-            int actualMoveCount = GameState.Move(move);
+            int actualMoveCount = GameState.MakeMove(move);
             int actualDiskCountForPole0 = GameState.Poles[0].Disks.Count;
             int actualDiskCountForPole1 = GameState.Poles[1].Disks.Count;
             int actualDiskCountForPole2 = GameState.Poles[2].Disks.Count;
@@ -142,7 +142,7 @@ namespace toh_test
             List<Move> moves = MoveCalculator.GetMoves(numberOfDisks);
             foreach (Move move in moves)
             {
-                GameState.Move(move);
+                GameState.MakeMove(move);
             }
         }            
 
