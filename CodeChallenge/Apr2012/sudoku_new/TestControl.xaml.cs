@@ -21,19 +21,45 @@ namespace sudoku_new
     {
         public int Id { get; set; }
         public string DisplayValue { get; set; }
-        public bool IsHighligthed { get; set; }
-        
 
-        public TestControl()
+
+				//public bool FilterEnabled
+				//{
+				//  get { return filterEnabled; }
+				//  set
+				//  {
+				//    panelFilter.Enabled = value;
+				//    filterEnabled = value;
+				//  }
+				//}
+
+				private bool isHighlighted;
+			  public bool IsHighlighted 
+				{
+					get
+					{
+						return isHighlighted;
+         	}
+					set
+					{
+
+						isHighlighted = value;
+					}
+	     	}
+
+        public TestControl(bool highlight)
         {
 
             InitializeComponent();
+					  IsHighlighted = highlight;
             PopulateDetails();
+						
 
         }
 
         private void PopulateDetails()
         {
+					
             //SudokuRectangle 
             //Rectangle emptyBlock = new Rectangle();
             //SudokuRectangle.Height = 37;
@@ -55,7 +81,7 @@ namespace sudoku_new
             //SudokuLabel.Children.Insert(1, blockLabel);
             //labels[blocknumber] = blockLabel;
 
-            if (IsHighligthed == false)
+						if (isHighlighted == false)
             {
                 gradients.Add(new GradientStop(Colors.Gray, 1));
                 gradients.Add(new GradientStop(Color.FromArgb(38, 255, 255, 255), 0.448));
@@ -77,6 +103,9 @@ namespace sudoku_new
             SudokuRectangle.Fill = myBrush;
             SudokuRectangle.RadiusX = 8;
             SudokuRectangle.RadiusY = 8;
+
+
+					  
             //SudokuRectangle.Name = "B" + (BLockNameIterator).ToString();
         }
 

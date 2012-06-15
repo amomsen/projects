@@ -6,6 +6,6 @@
              mc:Ignorable="d" Height="39" Width="42">
     <Grid>
         <Rectangle Height="37" HorizontalAlignment="Left" Margin="0,0,0,0" Name="SudokuRectangle" Stroke="Black" VerticalAlignment="Top" Width="40"/>
-        <Label Content="0" Height="37" HorizontalAlignment="Right" Margin="0,0,0,0" Name="SudokuLabel" VerticalAlignment="Top" FontSize="25" Width="40"/>
+        <Label Height="37" HorizontalAlignment="Right" Margin="0,0,0,0" Name="SudokuLabel" VerticalAlignment="Top" FontSize="25" Width="40" HorizontalContentAlignment="Left" Padding="11,0,5,5" OverridesDefaultStyle="False" />
     </Grid>
 </UserControl>
