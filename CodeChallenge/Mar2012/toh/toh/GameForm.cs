@@ -142,7 +142,7 @@ namespace toh
             hints.Text = "";
             hints.Visible = false;
             moveCounter.Text = GameState.MoveCount.ToString();
-            possibleToSolve.Text = "It is possible to solve this puzzel in " + MoveCalculator.GetMoveCount(GameState.NumberOfDisks).ToString() + " moves.";
+            possibleToSolve.Text = "It is possible to solve this puzzle in " + MoveCalculator.GetMoveCount(GameState.NumberOfDisks).ToString() + " moves.";
         }
 
         private void RemoveAllDisks()
@@ -163,7 +163,6 @@ namespace toh
             _base.Size = toh.Properties.Resources._base.Size;
             _base.BackColor = SystemColors.ControlDarkDark;
             _base.Location = new Point(GameConstants.BaseStartPositionX, GameConstants.BaseStartPositionY);
-
 
             this.Controls.Add(_base);
             
