@@ -1,0 +1,7 @@
+C:\workspace\projects\projects\CodeGroup\mvc\MvcMusicStore\MvcMusicStore\bin\MvcMusicStore.dll
+C:\workspace\projects\projects\CodeGroup\mvc\MvcMusicStore\MvcMusicStore\bin\MvcMusicStore.pdb
+C:\workspace\projects\projects\CodeGroup\mvc\MvcMusicStore\MvcMusicStore\bin\EntityFramework.dll
+C:\workspace\projects\projects\CodeGroup\mvc\MvcMusicStore\MvcMusicStore\bin\EntityFramework.xml
+C:\workspace\projects\projects\CodeGroup\mvc\MvcMusicStore\MvcMusicStore\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\projects\projects\CodeGroup\mvc\MvcMusicStore\MvcMusicStore\obj\Debug\MvcMusicStore.dll
+C:\workspace\projects\projects\CodeGroup\mvc\MvcMusicStore\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
