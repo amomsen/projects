@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Shapes;
 using sudoku_new;
 
 namespace sudoku
@@ -27,66 +25,49 @@ namespace sudoku
         public SudokuGrid()
         {
             InitializeComponent();
-
-            numbers = GameController.GetSudokuProblem(36).ToArray();
-
-						DrawSquare(7,8);
+            numbers = GameController.GetSudokuProblem().ToArray();
+            DrawSquare(7, 8);
         }
 
-        private void DrawBoard()
+        private void DrawSquare(int startx, int starty)
         {
-						//for (int vert = 1; vert < 10; vert++)
-						//{
-						//    for (int hori = 1; hori < 10; hori++)
-						//    {
-						//        DrawSquare((hori * 120) - 120 + (6 * hori), (vert * 111) - 111 + (6 * vert));
-						//    }
-						//}
+            int x, y;
+            int YAdder = 0;
+            for (int vert = 1; vert < 10; vert++)
+            {
+                int xAdder = 0;
+
+                if (vert == 4 || vert == 7)
+                    YAdder += 4;
+
+                for (int hori = 1; hori < 10; hori++)
+                {
+                    if (hori == 4 || hori == 7)
+                        xAdder += 5;
+
+                    x = (hori * 40) - 40 + startx + xAdder;
+                    y = (vert * 37) - 37 + starty + YAdder;
+
+                    if (numbers[BlockNumber] == 0)
+                        DrawBlock(x, y, true, numbers[BlockNumber], BlockNumber++);
+                    else
+                        DrawBlock(x, y, false, numbers[BlockNumber], BlockNumber++);
+
+                    PositionList.Add(new Point(x, y));
+                }
+            }
         }
-
-				private void DrawSquare(int startx, int starty)
-				{
-					int x, y;
-					int YAdder = 0;
-					for (int vert = 1; vert < 10; vert++)
-					{
-						int xAdder = 0;
-
-						if (vert == 4 || vert == 7)
-							YAdder += 4;
-
-						for (int hori = 1; hori < 10; hori++)
-						{
-							if (hori == 4 || hori == 7)
-								xAdder += 5;
-
-							x = (hori * 40) - 40 + startx + xAdder;
-							y = (vert * 37) - 37 + starty + YAdder;
-
-							if (numbers[BlockNumber] == 0)
-								DrawBlock(x, y, true, numbers[BlockNumber], BlockNumber++);
-							else
-								DrawBlock(x, y, false, numbers[BlockNumber], BlockNumber++);
-
-							PositionList.Add(new Point(x, y));
-						}
-					}
-				}
 
         private void DrawBlock(int x, int y, bool highlight, int DisplayNumber, int blocknumber)
         {
-					TestControl block = new TestControl(highlight) { Id = blocknumber, DisplayValue = DisplayNumber.ToString()};
-            
+            TestControl block = new TestControl(highlight) { Id = blocknumber, DisplayValue = DisplayNumber.ToString() };
+
             block.SetValue(Canvas.TopProperty, Convert.ToDouble(y));
             block.SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
-            
-            block.Name = "B" + (BLockNameIterator++).ToString();
-            
-            //BoardCanvas.Children.Insert(1, block);
-            
-            labels[blocknumber] = block.SudokuLabel;
 
-            //emptyBlock.Name = "B" + (BLockNameIterator).ToString();
+            block.Name = "B" + (BLockNameIterator++).ToString();
+
+            labels[blocknumber] = block.SudokuLabel;
 
             if (DisplayNumber != 0)
             {
@@ -103,10 +84,7 @@ namespace sudoku
         {
             string blockName = "";
             int blockNumber;
-            //if (e.Source is Rectangle)
-            //    blockName = ((Rectangle)e.Source).Name.TrimStart('B');
-            //else if (e.Source is Label)
-            //    blockName = ((Label)e.Source).Name.TrimStart('B');
+
             TestControl testControl = (TestControl)e.Source;
 
             blockName = testControl.Name.TrimStart('B');
@@ -120,25 +98,27 @@ namespace sudoku
                 }
                 testControl.SudokuLabel.Focus();
 
-								inputBox = new TextBox();
-								inputBox.SetValue(Canvas.LeftProperty, Convert.ToDouble(PositionList[blockNumber].X));
-								inputBox.SetValue(Canvas.TopProperty, Convert.ToDouble(PositionList[blockNumber].Y));
-								SelectedBlock = blockNumber;
-								inputBox.Height = 37;
-								inputBox.Width = 40;
-								inputBox.KeyDown += new KeyEventHandler(inputBox_KeyDown);
-								inputBox.Focus();
-								inputBox.KeyDown += new KeyEventHandler(inputBox_KeyDown);
-								inputBox.FontSize = 25;
-								inputBox.TextAlignment = TextAlignment.Center;
-								BoardCanvas.Children.Insert(1, inputBox);
-								inputBox.Focus();
+                inputBox = new TextBox();
+                inputBox.SetValue(Canvas.LeftProperty, Convert.ToDouble(PositionList[blockNumber].X));
+                inputBox.SetValue(Canvas.TopProperty, Convert.ToDouble(PositionList[blockNumber].Y));
+                SelectedBlock = blockNumber;
+                inputBox.Height = 37;
+                inputBox.Width = 40;
+                inputBox.KeyDown += new KeyEventHandler(inputBox_KeyDown);
+                inputBox.Focus();
+                inputBox.KeyDown += new KeyEventHandler(inputBox_KeyDown);
+                inputBox.FontSize = 25;
+                inputBox.TextAlignment = TextAlignment.Center;
+                BoardCanvas.Children.Insert(1, inputBox);
+                inputBox.Focus();
             }
         }
 
         private void inputBox_KeyDown(object sender, KeyEventArgs e)
         {
             string key = e.Key.ToString().TrimStart('D');
+
+            string s = e.Key.ToString();
 
             bool foundInput = false;
             for (int i = 0; i < 10; i++)
@@ -154,7 +134,6 @@ namespace sudoku
             {
                 labels[SelectedBlock].Content = key.ToString();
                 BoardCanvas.Children.Remove(inputBox);
-
                 CheckIfSuccess();
             }
 

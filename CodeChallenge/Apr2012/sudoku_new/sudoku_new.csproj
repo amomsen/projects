@@ -63,7 +63,6 @@
     <Compile Include="SudokuGrid.xaml.cs">
       <DependentUpon>SudokuGrid.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SudokuSquare.cs" />
     <Compile Include="TestControl.xaml.cs">
       <DependentUpon>TestControl.xaml</DependentUpon>
     </Compile>
@@ -76,10 +75,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Board.cs" />
     <Compile Include="DecisionFactory.cs" />
     <Compile Include="GameController.cs" />
-    <Compile Include="GridHelper.cs" />
+    <Compile Include="Grid.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

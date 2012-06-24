@@ -12,10 +12,7 @@ namespace sudoku
     public class SudokuSquare : UserControl
     {
 
-        //Rectangle rectangle = new Rectangle();
-        
-
-       public SudokuSquare(int id, int x, int y)
+       /*public SudokuSquare(int id, int x, int y)
         {
             //Rectangle rectangle = new Rectangle();
             this.Width = 40;
@@ -34,10 +31,8 @@ namespace sudoku
             label.SetValue(Canvas.TopProperty, Convert.ToDouble(y - 5));
             label.SetValue(Canvas.LeftProperty, Convert.ToDouble(x + 7));
             label.Name = "B" + (id).ToString();
-
-
             
-        }
+        }*/
 
     }
 }

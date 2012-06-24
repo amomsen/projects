@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
 namespace sudoku
 {
-    public static class GridHelper
+    public static class Grid
     {
         private static readonly List<int> Squares = new List<int>(81);
 
-        static GridHelper()
+        static Grid()
         {
             if (Squares.Count == 0)
             {
