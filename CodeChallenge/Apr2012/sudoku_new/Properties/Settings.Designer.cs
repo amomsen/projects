@@ -70,5 +70,17 @@ namespace sudoku_new.Properties {
                 this["Hints"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("_")]
+        public char StringAffix {
+            get {
+                return ((char)(this["StringAffix"]));
+            }
+            set {
+                this["StringAffix"] = value;
+            }
+        }
     }
 }

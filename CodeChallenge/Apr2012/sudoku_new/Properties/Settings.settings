@@ -14,5 +14,8 @@
     <Setting Name="Hints" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">36</Value>
     </Setting>
+    <Setting Name="StringAffix" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">_</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

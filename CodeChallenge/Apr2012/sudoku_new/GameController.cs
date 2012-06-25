@@ -6,26 +6,25 @@ namespace sudoku
 {
 
     //Notes: Currently no Game/move evaluation 
-    class GameController
+    public class GameController
     {
-        private static void HideNumbers(List<int> list, int amount)
+        private static List<int> sudokuProblem = new List<int>();
+
+        private static void HideNumbers(int amountToHide)
         {
-            List<int> toHide = Utils.GetUniqueRandomIntegers(0, 81, amount);
-            for (int x = 0; x < list.Count; x++)
+            List<int> toHide = Utils.GetUniqueRandomIntegers(0, 81, amountToHide);
+            foreach (int hideMe in toHide)
             {
-                if (toHide.Contains(x))
-                {
-                        list[x] = 0;
-                }
+                sudokuProblem[hideMe] = 0;
             }
-        } 
+        }
 
         public static List<int> GetSudokuProblem()
         {
+            sudokuProblem = GetSudokuNumbers();
             int amountOfHints = sudoku_new.Properties.Settings.Default.Hints;
-            List<int> problem = GetSudokuNumbers();
-            HideNumbers(problem, (problem.Count - amountOfHints));
-            return problem;
+            HideNumbers((sudokuProblem.Count - amountOfHints));
+            return sudokuProblem;
         }
 
         private static List<int> GetSudokuNumbers()
@@ -46,9 +45,9 @@ namespace sudoku
                     Model.AllDifferent(getDecision(decisionList, Grid.GetBox(j)))
                 );
             }
-            int seed = Utils.GetUniqueRandomIntegers(1, 10, 1)[0];
-            int position = Utils.GetUniqueRandomIntegers(1, 10, 1)[0];
-            model.AddConstraints("seed", decisionList[position] == seed);
+            int seedValue = Utils.GetUniqueRandomInteger(1, 10);
+            int seedPosition = Utils.GetUniqueRandomInteger(1, 10);
+            model.AddConstraints("seed", decisionList[seedPosition] == seedValue);
 
             context.Solve(new ConstraintProgrammingDirective());
 
@@ -69,7 +68,7 @@ namespace sudoku
         private static Term[] getDecision(List<Decision> decisionList, List<int> indexes)
         {
             Term[] results = new Term[9];
-            int i = 0; 
+            int i = 0;
             foreach (int index in indexes)
             {
                 results[i] = (decisionList[index]);

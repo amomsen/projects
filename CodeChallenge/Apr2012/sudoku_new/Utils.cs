@@ -37,6 +37,12 @@ namespace sudoku
             return randomIntegers;
         }
 
+        public static int GetUniqueRandomInteger(int minValue, int maxValue)
+        {
+            return GetUniqueRandomIntegers(minValue, maxValue, 1)[0];
+        }
+
+
         /*public static List<int> GetUniqueRandomIntegers(int minValue, int maxValue)
         {
             if (minValue >= maxValue)

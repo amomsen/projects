@@ -15,7 +15,7 @@ namespace sudoku
 
         private Label[] labels = new Label[81];
         private int BLockNameIterator;
-        private TextBox inputBox;
+        private TextBox inputBox = new TextBox();
         private int SelectedBlock;
         private int BlockNumber;
         private int[] numbers = new int[81];
@@ -60,12 +60,13 @@ namespace sudoku
 
         private void DrawBlock(int x, int y, bool highlight, int DisplayNumber, int blocknumber)
         {
-            TestControl block = new TestControl(highlight) { Id = blocknumber, DisplayValue = DisplayNumber.ToString() };
+
+            TestControl block = new TestControl(highlight) {IsHighlighted = highlight, Id = blocknumber, DisplayValue = DisplayNumber.ToString() };
 
             block.SetValue(Canvas.TopProperty, Convert.ToDouble(y));
             block.SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
 
-            block.Name = "B" + (BLockNameIterator++).ToString();
+            block.Name = sudoku_new.Properties.Settings.Default.StringAffix + (BLockNameIterator++).ToString();
 
             labels[blocknumber] = block.SudokuLabel;
 
@@ -77,28 +78,31 @@ namespace sudoku
             {
                 block.MouseLeftButtonDown += new MouseButtonEventHandler(emptyBlock_MouseLeftButtonDown);
             }
-            BoardCanvas.Children.Insert(1, block);
+            Canvas.Children.Insert(1, block);
         }
+
+        
 
         private void emptyBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            string blockName = "";
+            string blockName = string.Empty;
             int blockNumber;
 
             TestControl testControl = (TestControl)e.Source;
 
-            blockName = testControl.Name.TrimStart('B');
+            blockName = testControl.Name.TrimStart(sudoku_new.Properties.Settings.Default.StringAffix);
 
             if (int.TryParse(blockName, out blockNumber))
             {
                 if (inputBox != null)
                 {
-                    BoardCanvas.Children.Remove(inputBox);
+                    Canvas.Children.Remove(inputBox);
                     inputBox = null;
                 }
                 testControl.SudokuLabel.Focus();
 
                 inputBox = new TextBox();
+
                 inputBox.SetValue(Canvas.LeftProperty, Convert.ToDouble(PositionList[blockNumber].X));
                 inputBox.SetValue(Canvas.TopProperty, Convert.ToDouble(PositionList[blockNumber].Y));
                 SelectedBlock = blockNumber;
@@ -109,7 +113,7 @@ namespace sudoku
                 inputBox.KeyDown += new KeyEventHandler(inputBox_KeyDown);
                 inputBox.FontSize = 25;
                 inputBox.TextAlignment = TextAlignment.Center;
-                BoardCanvas.Children.Insert(1, inputBox);
+                Canvas.Children.Insert(1, inputBox);
                 inputBox.Focus();
             }
         }
@@ -133,7 +137,7 @@ namespace sudoku
             else
             {
                 labels[SelectedBlock].Content = key.ToString();
-                BoardCanvas.Children.Remove(inputBox);
+                Canvas.Children.Remove(inputBox);
                 CheckIfSuccess();
             }
 

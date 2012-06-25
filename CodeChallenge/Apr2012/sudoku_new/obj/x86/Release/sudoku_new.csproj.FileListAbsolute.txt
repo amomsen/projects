@@ -16,3 +16,4 @@ C:\workspace\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Release\sudoku_ne
 C:\workspace\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Release\sudoku_new.csproj.GenerateResource.Cache
 C:\workspace\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Release\sudoku_new.exe
 C:\workspace\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Release\sudoku_new.pdb
+C:\workspace\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Release\sudoku_new.csprojResolveAssemblyReference.cache
