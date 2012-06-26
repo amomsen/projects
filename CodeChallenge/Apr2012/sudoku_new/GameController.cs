@@ -4,8 +4,7 @@ using Microsoft.SolverFoundation.Services;
 
 namespace sudoku
 {
-
-    //Notes: Currently no Game/move evaluation 
+    //Notes: Currently no Game/move evaluation
     public class GameController
     {
         private static List<int> sudokuProblem = new List<int>();

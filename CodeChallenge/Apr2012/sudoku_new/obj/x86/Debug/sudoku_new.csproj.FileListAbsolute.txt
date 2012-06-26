@@ -17,3 +17,6 @@ C:\workspace\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Debug\sudoku_new.
 C:\workspace\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Debug\sudoku_new.csproj.GenerateResource.Cache
 C:\workspace\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Debug\sudoku_new.exe
 C:\workspace\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Debug\sudoku_new.pdb
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku_new\bin\Debug\sudoku_new.exe.config
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Debug\sudoku_new.exe
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku_new\obj\x86\Debug\sudoku_new.pdb

@@ -12,7 +12,6 @@ namespace sudoku
     /// </summary>
     public partial class SudokuGrid : UserControl
     {
-
         private Label[] labels = new Label[81];
         private int BLockNameIterator;
         private TextBox inputBox = new TextBox();
@@ -60,8 +59,7 @@ namespace sudoku
 
         private void DrawBlock(int x, int y, bool highlight, int DisplayNumber, int blocknumber)
         {
-
-            TestControl block = new TestControl(highlight) {IsHighlighted = highlight, Id = blocknumber, DisplayValue = DisplayNumber.ToString() };
+            TestControl block = new TestControl(highlight) { IsHighlighted = highlight, Id = blocknumber, DisplayValue = DisplayNumber.ToString() };
 
             block.SetValue(Canvas.TopProperty, Convert.ToDouble(y));
             block.SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
@@ -80,8 +78,6 @@ namespace sudoku
             }
             Canvas.Children.Insert(1, block);
         }
-
-        
 
         private void emptyBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -140,7 +136,6 @@ namespace sudoku
                 Canvas.Children.Remove(inputBox);
                 CheckIfSuccess();
             }
-
         }
 
         private void CheckIfSuccess()
