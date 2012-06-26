@@ -25,7 +25,13 @@ namespace sudoku
 
         public static List<Decision> BuildDecisions(List<int> squares)
         {
+            if (squares == null || squares.Count == 0)
+            {
+                return new List<Decision>();
+            }
+            
             Decisions.Clear();
+
             foreach (int i in squares)
             {
                 Decisions.Add(new Decision(Domain.IntegerRange(1, 9), "_" + i));

@@ -9,7 +9,7 @@ namespace sudoku
          * The minValue & maxValue will be used as the range.
          * count is the amount of random intergers that will be returned. */
 
-        public static List<int> GetUniqueRandomIntegers(int minValue, int maxValue, int count)
+        public static List<int> GetUniqueRandomNumbers(int minValue, int maxValue, int count)
         {
             List<int> randomIntegers = new List<int>();
 
@@ -31,9 +31,9 @@ namespace sudoku
             return randomIntegers;
         }
 
-        public static int GetUniqueRandomInteger(int minValue, int maxValue)
+        public static int GetRandomNumber(int minValue, int maxValue)
         {
-            return GetUniqueRandomIntegers(minValue, maxValue, 1)[0];
+            return GetUniqueRandomNumbers(minValue, maxValue, 1)[0];
         }
 
         /*public static List<int> GetUniqueRandomIntegers(int minValue, int maxValue)

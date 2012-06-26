@@ -5,13 +5,13 @@ using Microsoft.SolverFoundation.Services;
 namespace sudoku
 {
     //Notes: Currently no Game/move evaluation
-    public class GameController
+    public static class GameController
     {
         private static List<int> sudokuProblem = new List<int>();
 
         private static void HideNumbers(int amountToHide)
         {
-            List<int> toHide = Utils.GetUniqueRandomIntegers(0, 81, amountToHide);
+            List<int> toHide = Utils.GetUniqueRandomNumbers(0, 81, amountToHide);
             foreach (int hideMe in toHide)
             {
                 sudokuProblem[hideMe] = 0;
@@ -44,8 +44,8 @@ namespace sudoku
                     Model.AllDifferent(getDecision(decisionList, Grid.GetBox(j)))
                 );
             }
-            int seedValue = Utils.GetUniqueRandomInteger(1, 10);
-            int seedPosition = Utils.GetUniqueRandomInteger(1, 10);
+            int seedValue = Utils.GetRandomNumber(1, 10);
+            int seedPosition = Utils.GetRandomNumber(1, 10);
             model.AddConstraints("seed", decisionList[seedPosition] == seedValue);
 
             context.Solve(new ConstraintProgrammingDirective());
