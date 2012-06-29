@@ -6,6 +6,7 @@ namespace sudoku
     public static class DecisionFactory
     {
         private static readonly List<Decision> Decisions = new List<Decision>(9);
+        private static Domain domain = Domain.IntegerRange(1, 9);
 
         static DecisionFactory()
         {
@@ -18,7 +19,7 @@ namespace sudoku
             {
                 for (int i = 0; i < 81; i++)
                 {
-                    Decisions.Add(new Decision(Domain.IntegerRange(1, 9), "_" + i));
+                    Decisions.Add(new Decision(domain, "_" + i));
                 }
             }
         }
@@ -34,7 +35,7 @@ namespace sudoku
 
             foreach (int i in squares)
             {
-                Decisions.Add(new Decision(Domain.IntegerRange(1, 9), "_" + i));
+                Decisions.Add(new Decision(domain, "_" + i));
             }
             return Decisions;
         }

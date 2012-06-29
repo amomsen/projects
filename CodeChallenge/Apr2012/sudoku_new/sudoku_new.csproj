@@ -63,8 +63,8 @@
     <Compile Include="SudokuGrid.xaml.cs">
       <DependentUpon>SudokuGrid.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestControl.xaml.cs">
-      <DependentUpon>TestControl.xaml</DependentUpon>
+    <Compile Include="SudokuSquare.xaml.cs">
+      <DependentUpon>SudokuSquare.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
     <Page Include="MainWindow.xaml">
@@ -86,7 +86,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TestControl.xaml">
+    <Page Include="SudokuSquare.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

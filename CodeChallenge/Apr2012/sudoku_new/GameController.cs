@@ -26,6 +26,12 @@ namespace sudoku
             return sudokuProblem;
         }
 
+        public static bool IsProblemSolved(List<int> possibleSolution)
+        {
+            return possibleSolution.Equals(sudokuProblem);
+            
+        }
+
         private static List<int> GetSudokuNumbers()
         {
             SolverContext context = SolverContext.GetContext();
