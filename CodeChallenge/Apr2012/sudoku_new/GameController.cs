@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.SolverFoundation.Services;
+using System.Windows;
 
 namespace sudoku
 {
@@ -9,27 +10,38 @@ namespace sudoku
     {
         private static List<int> sudokuProblem = new List<int>();
 
-        private static void HideNumbers(int amountToHide)
+        private static List<int> HideNumbers(int amountToHide)
         {
             List<int> toHide = Utils.GetUniqueRandomNumbers(0, 81, amountToHide);
+
+            
+            List<int> sudokuProblemWithHints = new List<int>();
+            sudokuProblemWithHints.AddRange(sudokuProblem);
             foreach (int hideMe in toHide)
             {
-                sudokuProblem[hideMe] = 0;
+                sudokuProblemWithHints[hideMe] = 0;
             }
+            return sudokuProblemWithHints;
         }
 
         public static List<int> GetSudokuProblem()
         {
             sudokuProblem = GetSudokuNumbers();
             int amountOfHints = sudoku_new.Properties.Settings.Default.Hints;
-            HideNumbers((sudokuProblem.Count - amountOfHints));
-            return sudokuProblem;
+            return HideNumbers((sudokuProblem.Count - amountOfHints));
+            
         }
 
         public static bool IsProblemSolved(List<int> possibleSolution)
         {
-            return possibleSolution.Equals(sudokuProblem);
-            
+            for (int i = 0; i < possibleSolution.Count; i++)
+            {
+                if (possibleSolution[i] != sudokuProblem[i])
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private static List<int> GetSudokuNumbers()

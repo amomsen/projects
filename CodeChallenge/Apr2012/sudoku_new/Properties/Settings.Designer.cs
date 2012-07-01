@@ -61,7 +61,7 @@ namespace sudoku_new.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("36")]
+        [global::System.Configuration.DefaultSettingValueAttribute("80")]
         public int Hints {
             get {
                 return ((int)(this["Hints"]));
