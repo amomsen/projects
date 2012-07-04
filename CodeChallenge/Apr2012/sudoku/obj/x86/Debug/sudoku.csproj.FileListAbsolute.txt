@@ -45,3 +45,13 @@ C:\workspace\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.g.resour
 C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\bin\Debug\sudoku.exe.config
 C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.exe
 C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku.pdb
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\SudokuGrid.baml
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\SudokuSquare.baml
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\MainWindow.g.cs
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\SudokuGrid.g.cs
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\SudokuSquare.g.cs
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\App.g.cs
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku_MarkupCompile.cache
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\obj\x86\Debug\sudoku_MarkupCompile.lref

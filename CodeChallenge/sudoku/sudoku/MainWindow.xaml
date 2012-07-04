@@ -1,4 +1,4 @@
-﻿<Window x:Class="sudoku_new.MainWindow"
+﻿<Window x:Class="sudoku.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Sudoku" Height="398" Width="401" ResizeMode="NoResize" xmlns:my="clr-namespace:sudoku">

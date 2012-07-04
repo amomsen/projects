@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.SolverFoundation.Services;
 using System.Windows;
+using Microsoft.SolverFoundation.Services;
 
 namespace sudoku
 {
@@ -14,7 +14,7 @@ namespace sudoku
         {
             List<int> toHide = Utils.GetUniqueRandomNumbers(0, 81, amountToHide);
 
-            
+
             List<int> sudokuProblemWithHints = new List<int>();
             sudokuProblemWithHints.AddRange(sudokuProblem);
             foreach (int hideMe in toHide)
@@ -26,9 +26,11 @@ namespace sudoku
 
         public static List<int> GetSudokuProblem()
         {
-            sudokuProblem = GetSudokuNumbers();
-            int amountOfHints = sudoku_new.Properties.Settings.Default.Hints;
-            return HideNumbers((sudokuProblem.Count - amountOfHints));
+            
+               sudokuProblem = GetSudokuNumbers();
+               int amountOfHints = sudoku.Properties.Settings.Default.Hints;
+               return HideNumbers((sudokuProblem.Count - amountOfHints));
+            
             
         }
 
@@ -46,6 +48,7 @@ namespace sudoku
 
         private static List<int> GetSudokuNumbers()
         {
+            
             SolverContext context = SolverContext.GetContext();
             context.ClearModel();
             Model model = context.CreateModel();
@@ -53,7 +56,7 @@ namespace sudoku
 
             model.AddDecisions(decisionList.ToArray());
 
-            /* Add constraints to model.*/
+            // Add constraints to model.
             for (int j = 0; j < 9; j++)
             {
                 model.AddConstraints("constraint_" + j,
@@ -70,6 +73,7 @@ namespace sudoku
 
             List<int> results = ConvertDecicionsToIntegers(decisionList);
             return results;
+             
         }
 
         private static List<int> ConvertDecicionsToIntegers(List<Decision> decisionList)

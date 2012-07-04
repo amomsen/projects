@@ -7,3 +7,12 @@ C:\workspace\CodeChallenge\Apr2012\sudoku\sudoku.Test\obj\Debug\sudoku.Test.dll
 C:\workspace\CodeChallenge\Apr2012\sudoku\sudoku.Test\obj\Debug\sudoku.Test.pdb
 C:\workspace\CodeChallenge\Apr2012\sudoku\sudoku.Test\bin\Debug\sudoku_Accessor.exe
 C:\workspace\CodeChallenge\Apr2012\sudoku\sudoku.Test\bin\Debug\sudoku_Accessor.pdb
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\sudoku.Test\bin\Debug\sudoku.Test.dll
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\sudoku.Test\bin\Debug\sudoku.Test.pdb
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\sudoku.Test\bin\Debug\sudoku.exe
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\sudoku.Test\bin\Debug\sudoku.pdb
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\sudoku.Test\bin\Debug\sudoku_Accessor.exe
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\sudoku.Test\bin\Debug\sudoku_Accessor.pdb
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\sudoku.Test\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\sudoku.Test\obj\Debug\sudoku.Test.dll
+C:\workspace\projects\projects\CodeChallenge\Apr2012\sudoku\sudoku.Test\obj\Debug\sudoku.Test.pdb
