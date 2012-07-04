@@ -9,35 +9,24 @@ namespace sudoku
     public partial class SudokuGrid : UserControl
     {
         private List<SudokuSquare> sudokuSquares = new List<SudokuSquare>();
-        private List<int> possibleSolution = new List<int>();
-        private int[] sudokuProblem = new int[81];
+        private List<int> solution = new List<int>();
+        private List<int> problem = new List<int>();
         private List<Point> PositionList = new List<Point>();
 
         public SudokuGrid()
         {
             InitializeComponent();
-            sudokuProblem = GameController.GetSudokuProblem().ToArray();
+            solution = GameController.GetSudokuSolution();
+            problem = GameController.GetSudokuProblem();
             DrawSquares();
         }
 
         private void getPossibleSolution()
         {
-            possibleSolution = new List<int>();
+            solution = new List<int>();
             foreach (SudokuSquare square in sudokuSquares)
             {
-                possibleSolution.Add(Convert.ToInt32(square.Value));
-            }
-        }
-
-        private void CheckIfSuccess()
-        {
-            getPossibleSolution();
-            if (!possibleSolution.Contains(0))
-            {
-                if (GameController.IsProblemSolved(possibleSolution))
-                {
-                    MessageBox.Show("Congratulations!");
-                }
+                solution.Add(Convert.ToInt32(square.Value));
             }
         }
 
@@ -48,7 +37,7 @@ namespace sudoku
             {
                 for (int column = 0; column < 9; column++)
                 {
-                    SudokuSquare sudokuSquare = new SudokuSquare(sudokuProblem[squareNumber], row, column);
+                    SudokuSquare sudokuSquare = new SudokuSquare(problem[squareNumber], solution[squareNumber], row, column);
                     sudokuSquare.SudokuTextBox.TextChanged += new TextChangedEventHandler(TextChanged);
                     sudokuSquares.Add(sudokuSquare);
                     Canvas.Children.Insert(1, sudokuSquare);
@@ -59,7 +48,8 @@ namespace sudoku
 
         private void TextChanged(object sender, TextChangedEventArgs e)
         {
-            CheckIfSuccess();
+            getPossibleSolution();
+            GameController.IsSudokuSolved(solution);
         }
 
     }

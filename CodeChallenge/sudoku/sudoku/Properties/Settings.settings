@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="sudoku.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="BoardSize" Type="System.Int32" Scope="User">
@@ -16,6 +16,12 @@
     </Setting>
     <Setting Name="StringAffix" Type="System.Char" Scope="User">
       <Value Profile="(Default)">_</Value>
+    </Setting>
+    <Setting Name="StartSquareX" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="StartSquareY" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">8</Value>
     </Setting>
   </Settings>
 </SettingsFile>
