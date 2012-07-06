@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
-namespace sudoku
+namespace Sudoku
 {
     public partial class SudokuGrid : UserControl
     {
@@ -51,6 +50,5 @@ namespace sudoku
             getPossibleSolution();
             GameController.IsSudokuSolved(solution);
         }
-
     }
 }

@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows;
 using Microsoft.SolverFoundation.Services;
 
-
-namespace sudoku
+namespace Sudoku
 {
     public static class SudokuProblem
     {
         private static List<int> problem = new List<int>();
         private static List<int> solution = new List<int>();
-        private static int hints = 81;
+        private static int hints = Sudoku.Properties.Settings.Default.Hints;
 
         public static bool IsSolved(List<int> possibleSolution)
         {
+            if (possibleSolution == null)
+            {
+                return false;
+            }
+
             for (int i = 0; i < possibleSolution.Count; i++)
             {
                 if (possibleSolution[i] != solution[i])
@@ -24,9 +27,8 @@ namespace sudoku
             return true;
         }
 
-        public static void Generate()
+        public static void GenerateProblem()
         {
-
             SolverContext context = SolverContext.GetContext();
             context.ClearModel();
             Model model = context.CreateModel();
@@ -54,6 +56,15 @@ namespace sudoku
             HideNumbers();
         }
 
+        public static List<int> GetSolution()
+        {
+            return solution;
+        }
+
+        public static List<int> GetProblem()
+        {
+            return problem;
+        }
 
         private static List<int> ConvertDecicionsToIntegers(List<Decision> decisionList)
         {
@@ -77,29 +88,15 @@ namespace sudoku
             return results;
         }
 
-
-        public static List<int> GetSolution()
-        {
-            return solution;
-        }
-
-        public static List<int> GetProblem()
-        {
-            return problem;
-        }
-
-
-
         private static void HideNumbers()
         {
-            List<int> toHide = Utils.GetUniqueRandomNumbers(0, 81, 81-hints);
-            
+            List<int> toHide = Utils.GetUniqueRandomNumbers(0, 81, 81 - hints);
+
             problem.AddRange(solution);
             foreach (int hideMe in toHide)
             {
                 problem[hideMe] = 0;
             }
-            
         }
     }
 }

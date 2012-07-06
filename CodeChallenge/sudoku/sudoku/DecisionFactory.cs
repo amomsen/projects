@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.SolverFoundation.Services;
 
-namespace sudoku
+namespace Sudoku
 {
     public static class DecisionFactory
     {
@@ -30,7 +30,7 @@ namespace sudoku
             {
                 return new List<Decision>();
             }
-            
+
             Decisions.Clear();
 
             foreach (int i in squares)

@@ -1,19 +1,22 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Input;
-using System;
 
-namespace sudoku
+namespace Sudoku
 {
     public partial class SudokuSquare : UserControl
     {
         public int Row { get; set; }
-        public int Column  { get; set; }
+
+        public int Column { get; set; }
+
         public int Value { get; set; }
+
         public int CorrectValue { get; set; }
-        private int startSquarePositionX = sudoku.Properties.Settings.Default.StartSquareX;
-        private int startSquarePositionY = sudoku.Properties.Settings.Default.StartSquareY;
+
+        private int startSquarePositionX = Sudoku.Properties.Settings.Default.StartSquareX;
+        private int startSquarePositionY = Sudoku.Properties.Settings.Default.StartSquareY;
         private const int spaceBetweenBoxes = 5;
 
         public SudokuSquare(int value, int correctValue, int row, int column)
@@ -46,7 +49,6 @@ namespace sudoku
             {
                 startSquarePositionY += spaceBetweenBoxes;
             }
-
         }
 
         private void DrawSquares()
@@ -59,7 +61,7 @@ namespace sudoku
 
             if (Value != 0)
             {
-                SudokuTextBox.Text = Value.ToString(); 
+                SudokuTextBox.Text = Value.ToString();
                 SudokuTextBox.IsEnabled = false;
                 SetGradient(Colors.LightBlue, Colors.Silver);
             }

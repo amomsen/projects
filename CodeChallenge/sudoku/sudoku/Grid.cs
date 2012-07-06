@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Windows;
 
-namespace sudoku
+namespace Sudoku
 {
     public static class Grid
     {

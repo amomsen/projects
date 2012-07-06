@@ -1,11 +1,12 @@
 ﻿using System.Windows;
 
-namespace sudoku
+namespace Sudoku
 {
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
+            GameController.GenerateNewGame();
             InitializeComponent();
         }
     }
