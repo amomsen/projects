@@ -2,21 +2,19 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using sudoku;
 
 namespace Sudoku
 {
     public partial class SudokuSquare : UserControl
     {
         public int Row { get; set; }
-
         public int Column { get; set; }
-
         public int Value { get; set; }
-
         public int CorrectValue { get; set; }
 
-        private int startSquarePositionX = Sudoku.Properties.Settings.Default.StartSquareX;
-        private int startSquarePositionY = Sudoku.Properties.Settings.Default.StartSquareY;
+        private int startSquarePositionX = sudoku.Properties.Settings.Default.StartSquareX;
+        private int startSquarePositionY = sudoku.Properties.Settings.Default.StartSquareY;
         private const int spaceBetweenBoxes = 5;
 
         public SudokuSquare(int value, int correctValue, int row, int column)
@@ -26,55 +24,31 @@ namespace Sudoku
             CorrectValue = correctValue;
             Row = row;
             Column = column;
-            DrawSquares();
+            DrawSquare();
         }
 
-        private void PositionSquaresIntoBoxes()
-        {
-            if (Row >= 3)
-            {
-                startSquarePositionX += spaceBetweenBoxes;
-            }
-            if (Row >= 6)
-            {
-                startSquarePositionX += spaceBetweenBoxes;
-            }
-
-            if (Column >= 3)
-            {
-                startSquarePositionY += spaceBetweenBoxes;
-            }
-
-            if (Column >= 6)
-            {
-                startSquarePositionY += spaceBetweenBoxes;
-            }
-        }
-
-        private void DrawSquares()
+        private void DrawSquare()
         {
             PositionSquaresIntoBoxes();
             int x = startSquarePositionX + (Row * (int)SudokuRectangle.Width);
             int y = startSquarePositionY + (Column * (int)SudokuRectangle.Height);
             SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
             SetValue(Canvas.TopProperty, Convert.ToDouble(y));
-
-            if (Value != 0)
+            if (Value != sudoku.Properties.Settings.Default.PlaceHolder)
             {
                 SudokuTextBox.Text = Value.ToString();
                 SudokuTextBox.IsEnabled = false;
-                SetGradient(Colors.LightBlue, Colors.Silver);
+             
             }
-            else
-            {
-                SetGradient(Colors.Silver, Colors.Purple);
-            }
+            SetGradient(Colors.LightBlue, Colors.Silver);
             SudokuTextBox.TextChanged += new TextChangedEventHandler(SudokuTextBox_TextChanged);
         }
 
         private void SudokuTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
+            
+            //TODO: 
             int i = 0;
             bool b = Int32.TryParse(textBox.Text, out i);
             Value = i;
@@ -99,5 +73,12 @@ namespace Sudoku
             brush.EndPoint = new Point(0.5, 1);
             SudokuRectangle.Fill = brush;
         }
+
+        private void PositionSquaresIntoBoxes()
+        {
+            startSquarePositionX += (Row / 3) * spaceBetweenBoxes;
+            startSquarePositionY += (Column / 3) * spaceBetweenBoxes;
+        }
+
     }
 }

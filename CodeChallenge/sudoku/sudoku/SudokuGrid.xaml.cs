@@ -9,6 +9,7 @@ namespace Sudoku
     {
         private List<SudokuSquare> sudokuSquares = new List<SudokuSquare>();
         private List<int> solution = new List<int>();
+        private List<int> attempt = new List<int>();
         private List<int> problem = new List<int>();
         private List<Point> PositionList = new List<Point>();
 
@@ -20,12 +21,12 @@ namespace Sudoku
             DrawSquares();
         }
 
-        private void getPossibleSolution()
+        private void GetPossibleSolution()
         {
-            solution = new List<int>();
+            attempt = new List<int>();
             foreach (SudokuSquare square in sudokuSquares)
             {
-                solution.Add(Convert.ToInt32(square.Value));
+                attempt.Add(Convert.ToInt32(square.Value));
             }
         }
 
@@ -47,8 +48,8 @@ namespace Sudoku
 
         private void TextChanged(object sender, TextChangedEventArgs e)
         {
-            getPossibleSolution();
-            GameController.IsSudokuSolved(solution);
+            GetPossibleSolution();
+            GameController.IsSudokuSolved(attempt);
         }
     }
 }

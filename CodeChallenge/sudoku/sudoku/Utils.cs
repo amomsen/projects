@@ -5,6 +5,8 @@ namespace Sudoku
 {
     public static class Utils
     {
+        
+
         /* This method will return a list of unique random integers.
          * The minValue & maxValue will be used as the range.
          * count is the amount of random intergers that will be returned. */
@@ -14,13 +16,12 @@ namespace Sudoku
             List<int> randomIntegers = new List<int>();
 
             /* Check that the input parameters are valid */
-            if (((maxValue - minValue) - 1) < count)
+            if (((maxValue - minValue) ) < count)
             {
                 return null;
             }
-
             Random random = new Random();
-            while (randomIntegers.Count <= count)
+            while (randomIntegers.Count < count)
             {
                 int next = random.Next(minValue, maxValue);
                 if (!randomIntegers.Contains(next))

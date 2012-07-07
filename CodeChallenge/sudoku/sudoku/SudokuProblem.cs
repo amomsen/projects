@@ -8,7 +8,7 @@ namespace Sudoku
     {
         private static List<int> problem = new List<int>();
         private static List<int> solution = new List<int>();
-        private static int hints = Sudoku.Properties.Settings.Default.Hints;
+        private static int hints = sudoku.Properties.Settings.Default.Hints;
 
         public static bool IsSolved(List<int> possibleSolution)
         {
@@ -31,11 +31,10 @@ namespace Sudoku
         {
             SolverContext context = SolverContext.GetContext();
             context.ClearModel();
-            Model model = context.CreateModel();
             List<Decision> decisionList = DecisionFactory.BuildDecisions(Grid.GetAllSquares());
-
+            Model model = context.CreateModel();
             model.AddDecisions(decisionList.ToArray());
-
+            
             // Add constraints to model.
             for (int j = 0; j < 9; j++)
             {
@@ -45,14 +44,14 @@ namespace Sudoku
                     Model.AllDifferent(getDecision(decisionList, Grid.GetBox(j)))
                 );
             }
-            int seedValue = Utils.GetRandomNumber(1, 10);
-            int seedPosition = Utils.GetRandomNumber(1, 10);
-            model.AddConstraints("seed", decisionList[seedPosition] == seedValue);
 
+            List<int> seedValues = Utils.GetUniqueRandomNumbers(1, 10, 9);
+            for (int i = 0; i < 9; i++)
+            {
+                model.AddConstraints("seed_"+i.ToString(), decisionList[i] == seedValues[i]);
+            }
             context.Solve(new ConstraintProgrammingDirective());
-
             solution = ConvertDecicionsToIntegers(decisionList);
-
             HideNumbers();
         }
 
@@ -91,7 +90,7 @@ namespace Sudoku
         private static void HideNumbers()
         {
             List<int> toHide = Utils.GetUniqueRandomNumbers(0, 81, 81 - hints);
-
+            problem = new List<int>();
             problem.AddRange(solution);
             foreach (int hideMe in toHide)
             {
