@@ -42,20 +42,20 @@ namespace Sudoku
             return column;
         }
 
-        public static List<int> GetBox(int boxNumber)
+        public static List<int> GetRegion(int regionNumber)
         {
-            List<int> box = new List<int>(9);
-            int verticalOffSet = (boxNumber / 3) * 3;
+            List<int> region = new List<int>(9);
+            int verticalOffSet = (regionNumber / 3) * 3;
             for (int i = 0 + verticalOffSet; i < 3 + verticalOffSet; i++)
             {
                 List<int> row = GetRow(i);
-                int horizontalOffSet = (boxNumber % 3) * 3;
+                int horizontalOffSet = (regionNumber % 3) * 3;
                 for (int j = 0 + horizontalOffSet; j < 3 + horizontalOffSet; j++)
                 {
-                    box.Add(row[j]);
+                    region.Add(row[j]);
                 }
             }
-            return box;
+            return region;
         }
     }
 }

@@ -10,17 +10,15 @@ namespace Sudoku
     {
         public int Row { get; set; }
         public int Column { get; set; }
-        public int Value { get; set; }
         public int CorrectValue { get; set; }
-
         private int startSquarePositionX = sudoku.Properties.Settings.Default.StartSquareX;
         private int startSquarePositionY = sudoku.Properties.Settings.Default.StartSquareY;
-        private const int spaceBetweenBoxes = 5;
+        private const int spaceBetweenRegions = 5;
 
         public SudokuSquare(int value, int correctValue, int row, int column)
         {
             InitializeComponent();
-            Value = value;
+            SudokuTextBox.Text = value.ToString();
             CorrectValue = correctValue;
             Row = row;
             Column = column;
@@ -29,16 +27,19 @@ namespace Sudoku
 
         private void DrawSquare()
         {
-            PositionSquaresIntoBoxes();
+            PositionSquaresIntoRegions();
             int x = startSquarePositionX + (Row * (int)SudokuRectangle.Width);
             int y = startSquarePositionY + (Column * (int)SudokuRectangle.Height);
             SetValue(Canvas.LeftProperty, Convert.ToDouble(x));
             SetValue(Canvas.TopProperty, Convert.ToDouble(y));
-            if (Value != sudoku.Properties.Settings.Default.PlaceHolder)
+            if (SudokuTextBox.Text.Equals(sudoku.Properties.Settings.Default.PlaceHolder.ToString()))
             {
-                SudokuTextBox.Text = Value.ToString();
+                SudokuTextBox.IsEnabled = true;
+                SudokuTextBox.Text = string.Empty;
+            }
+            else
+            {
                 SudokuTextBox.IsEnabled = false;
-             
             }
             SetGradient(Colors.LightBlue, Colors.Silver);
             SudokuTextBox.TextChanged += new TextChangedEventHandler(SudokuTextBox_TextChanged);
@@ -46,13 +47,14 @@ namespace Sudoku
 
         private void SudokuTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
+            int i;
+            if (!int.TryParse(SudokuTextBox.Text, out i)) {
+                SudokuTextBox.Text = string.Empty;
+                e.Handled = true;
+                return;
+            }
             
-            //TODO: 
-            int i = 0;
-            bool b = Int32.TryParse(textBox.Text, out i);
-            Value = i;
-            if (Value == CorrectValue)
+            if (SudokuTextBox.Text.Equals(CorrectValue.ToString()))
             {
                 SetGradient(Colors.Silver, Colors.OliveDrab);
             }
@@ -74,10 +76,10 @@ namespace Sudoku
             SudokuRectangle.Fill = brush;
         }
 
-        private void PositionSquaresIntoBoxes()
+        private void PositionSquaresIntoRegions()
         {
-            startSquarePositionX += (Row / 3) * spaceBetweenBoxes;
-            startSquarePositionY += (Column / 3) * spaceBetweenBoxes;
+            startSquarePositionX += (Row / 3) * spaceBetweenRegions;
+            startSquarePositionY += (Column / 3) * spaceBetweenRegions;
         }
 
     }

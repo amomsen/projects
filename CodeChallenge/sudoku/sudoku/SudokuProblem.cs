@@ -41,7 +41,7 @@ namespace Sudoku
                 model.AddConstraints("constraint_" + j,
                     Model.AllDifferent(getDecision(decisionList, Grid.GetRow(j))),
                     Model.AllDifferent(getDecision(decisionList, Grid.GetColumn(j))),
-                    Model.AllDifferent(getDecision(decisionList, Grid.GetBox(j)))
+                    Model.AllDifferent(getDecision(decisionList, Grid.GetRegion(j)))
                 );
             }
 

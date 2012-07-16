@@ -26,7 +26,7 @@ namespace Sudoku
             attempt = new List<int>();
             foreach (SudokuSquare square in sudokuSquares)
             {
-                attempt.Add(Convert.ToInt32(square.Value));
+                attempt.Add(Convert.ToInt32(square.SudokuTextBox.Text));
             }
         }
 
